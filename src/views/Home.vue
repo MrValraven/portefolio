@@ -16,6 +16,14 @@
           </div>
         </div>
       </section>
+      <section class="frases">
+        <h1>It's important to think outside of the box</h1>
+      </section>
+      <section class="funthings">
+        <div>
+          <h1>About me</h1>
+        </div>
+      </section>
     </div>
   
 </template>
@@ -119,6 +127,26 @@ export default defineComponent({
         font-size: 18px;
       }
     }
+  }
+}
+
+.funthings {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover > div{
+    padding: 100px;
+    border-radius: 0;
+  }
+
+  div {
+    padding: 100px;
+    border-radius: 50%;
+    border: 2px solid red;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
 </style>

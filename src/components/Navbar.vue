@@ -9,6 +9,7 @@
           </div>
       <ul>
         <li><router-link class="navLinks" to="/">.home<span>()</span></router-link></li>
+        <li><router-link class="navLinks" :to="{ name: 'Home' }">.about<span>()</span></router-link></li>
         <li><router-link class="navLinks" :to="{ name: 'Home' }">.work<span>()</span></router-link></li>
         <li><router-link class="navLinks" :to="{ name: 'Home' }">.contacts<span>()</span></router-link></li>
         <li><a  href="https://github.com/MrValraven" target="_blank"><i id="github" class="fab fa-github"></i></a></li>
