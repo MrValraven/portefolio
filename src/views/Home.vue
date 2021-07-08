@@ -4,7 +4,7 @@
     <Navbar v-if="!mobileMode" class="navbar" />
     <div v-if="!activatedNavbar" class="pageContent">
       <section class="hero">
-        <div class="image" :style="{ 'background-image': 'url(' + image + ')' }"></div>
+       <!--  <div class="image" :style="{ 'background-image': 'url(' + image + ')' }"></div>
         <div class="labels">
           <div class="designer">
             <h1>Designer</h1>
@@ -14,8 +14,28 @@
             <h1>&lt;Developer&gt;</h1>
             <p>A Fullstack developer who focuses on writing clean, elegant and efficient code </p>
           </div>
+        </div> -->
+        <div class="heroText">
+          <h2>Hi there 👋, I'm</h2>
+          <transition-group
+          appear
+          tag="h1"
+          @before-enter="beforeEnter"
+          @enter="enter" 
+          class="chars" 
+          >
+            <span class="char" v-for="(char, index) in chars" :key="char.id" :data-index="index">{{ char.text }}</span>
+          </transition-group>
+          <p>I'm a creative Fullstack Developer who loves to create elegant and functional user interfaces and web apps</p>
+          <div class="buttons">
+            <a @click="scrollToElement('.work')">See my work</a>
+            <a>Contact me</a>
+          </div>
         </div>
-        <a class="cta" @click="scrollToElement('.work')">find out about my work</a>
+  
+        <img class="tiagoImg" src="@/assets/tiago.png" alt="">
+        
+        
       </section>
       <section class="work">
         <h1>My latest work</h1>
@@ -90,8 +110,42 @@ import { defineComponent } from 'vue';
 import Navbar from '../components/Navbar.vue';
 import NavbarMobile from '../components/NavbarMobile.vue';
 import ScrollToTopButton from '../components/ScrollToTopButton.vue';
+import gsap from 'gsap';
+
 export default defineComponent({
   name: 'Home',
+  setup() {
+        const chars = [
+            {id: 0, text: "T"},
+            {id: 1, text: "i"},
+            {id: 2, text: "a"},
+            {id: 3, text: "g"},
+            {id: 4, text: "o"},
+            {id: 5, text: "C"},
+            {id: 6, text: "o"},
+            {id: 7, text: "s"},
+            {id: 8, text: "t"},
+            {id: 9, text: "a"},
+        ]
+        const beforeEnter: any = (el: any) => {
+            el.style.opacity = 0;
+            el.style.transform = 'rotate(-5deg) scale(1.1, 1.1) translateX(-10px) translateY(-10px)';
+        }
+        const enter: any = (el: any, done: any) => {
+            gsap.to(el, {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                rotation: 0,
+                duration: 1,
+                scale: 1,
+                ease: 'power3',
+                onComplete: done,
+                delay: el.dataset.index * 0.1,
+            });
+        }
+        return { chars, beforeEnter, enter }
+    },
   data() {
     return {
       activatedNavbar: false,
@@ -138,68 +192,156 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+
+$whiteBlue: #E7ECEF;
+$darkBlue: #274C77;
+$normalBlue: #6aa7cf;
+$lightBlue: #A3CEF1;
+$easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
+
 section {
   padding: 25px 100px 100px 100px;
 }
 
 .hero {
-  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 0;
 
-  .image {
+  .tiagoImg {
     position: absolute;
-    background-position: center;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
+    width: 50%;
+    right: 0;
+    bottom: 0;
     z-index: 1;
   }
 
-  .labels {
-    width: 100%;
+  .heroText {
+    height: 100vh;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 3;
-    border: 2px solid yellow;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 2;
 
-    .designer,
-    .developer {
-      border: 2px solid red;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      width: 30%;
-      color: #2c3e50;
+    h2 {
+      font-size: 20px;
+      margin-bottom: -30px;
+    }
 
-      h1 {
-        font-size: 70px;
-      }
+    h1 {
+      font-size: 120px;
 
-      p {
-        width: 80%;
-        font-size: 18px;
+      .char {
+        display: inline-block;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+        &:hover {
+          color: $normalBlue;
+          transform: rotate(-5deg) scale(1.1, 1.1) translateX(-5px) translateY(-5px) !important;
+        }
+
+        &:nth-child(6) {
+          margin-left: 25px;
+        }
       }
     }
-  }
 
-  .cta {
-    opacity: 1;
-    position: absolute;
-    top: 95%;
-    left: 47%;
-    z-index: 4;
-    color: white;
-  }
+    p {
+      width: 500px;
+      font-size: 20px;
+    }
+
+    .buttons {
+      margin-top: 25px;
+      display: flex;
+
+      a {
+        opacity: 1;
+        color: $whiteBlue;
+        background-color: $darkBlue;
+        border: 1px solid $normalBlue;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+        border-radius: 0.5rem;
+
+        &:last-child {
+          margin-left: 30px;
+          color: $darkBlue;
+          background-color: $whiteBlue;
+          border: 1px solid $darkBlue;
+        }
+
+        &:hover {
+          animation: standOut $easing 0.5s alternate both;
+        }
+
+        @keyframes standOut {
+
+          0% {
+            transform: rotate(0deg) scale(1, 1) translateX(0px) translateY(0px);
+          }
+
+          90% {
+            transform: rotate(2deg) scale(1.1, 1.1) translateX(1px) translateY(1px);
+          }
+
+          100% {
+            transform: rotate(2deg) scale(1.09, 1.09) translateX(1px) translateY(1px);
+          }
+          
+        }
+      }
+    }
 }
+
+    /* .image {
+      position: absolute;
+      background-position: center;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      background-position: center;
+      background-size: cover;
+      z-index: 1;
+    }
+
+    .labels {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 3;
+      border: 2px solid yellow;
+
+      .designer,
+      .developer {
+        border: 2px solid red;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 30%;
+        color: #2c3e50;
+
+        h1 {
+          font-size: 70px;
+        }
+
+        p {
+          width: 80%;
+          font-size: 18px;
+        }
+      }
+    } */
+  }
 
 .work {
   display: flex;
@@ -328,6 +470,7 @@ section {
     li {
       margin-top: 30px;
     }
+    
     i {
       font-size: 60px;
       margin-right: 30px;

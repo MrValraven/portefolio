@@ -39,7 +39,7 @@ export default defineComponent({
 	opacity: 1;
 	color: #fff;
 	padding: 20px 100px 0;
-  background: black;
+
   #nav {
     display: flex;
     justify-content: space-between;
@@ -62,7 +62,6 @@ export default defineComponent({
         font-size: 22px;
         a {
           font-weight: bold;
-          color: #f7f7f7;
           font-family: 'Roboto', sans-serif;
 
           &.router-link-exact-active {

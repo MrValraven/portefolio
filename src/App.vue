@@ -4,13 +4,33 @@
 
 <style lang="scss">
 @import url("https://use.fontawesome.com/releases/v5.15.2/css/all.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$whiteBlue: #E7ECEF;
+$darkBlue: #274C77;
+$normalBlue: #6aa7cf;
+$lightBlue: #A3CEF1;
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  background-color: #f7f7f7;
+  color: $darkBlue;
+  background-color: $whiteBlue;
+}
+
+body {
   
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $whiteBlue;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $darkBlue;
+    border-radius: 5px;
+  }
 }
 * {
   margin: 0;
