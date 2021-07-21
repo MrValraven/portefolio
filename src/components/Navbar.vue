@@ -32,8 +32,10 @@ export default defineComponent({
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+$darkBlue: #274C77;
+
 .header {
-  position: fixed;
+  position: absolute;
 	z-index: 10;
 	width: 100%;
 	opacity: 1;
@@ -62,28 +64,24 @@ export default defineComponent({
         font-size: 22px;
         a {
           font-weight: bold;
-          font-family: 'Roboto', sans-serif;
+          font-family: monospace;
+          color: $darkBlue;
 
           &.router-link-exact-active {
-            border-bottom: 1px solid black;
+            /* border-bottom: 1px solid black; */
           }
 
           i {
             font-size: 30px;
-            transition: all 0.2s ease-in;
+            transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
           }
 
           #linkedin:hover {
-             color: #2867B2;
+             transform: translateY(-5px);
           }
 
           #github:hover {
-            color: #6e5494;
-          }
-
-          span {
-            margin-left: 2px;
-            letter-spacing: 5px;
+            transform: translateY(-5px);
           }
         }  
       }

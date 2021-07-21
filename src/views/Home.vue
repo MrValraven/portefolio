@@ -16,26 +16,33 @@
           </div>
         </div> -->
         <div class="heroText">
-          <h2>Hi there 👋, I'm</h2>
-          <transition-group
-          appear
-          tag="h1"
-          @before-enter="beforeEnter"
-          @enter="enter" 
+          <h2><span>Hi there 👋, I'm</span></h2>
+          <h1
           class="chars" 
           >
-            <span class="char" v-for="(char, index) in chars" :key="char.id" :data-index="index">{{ char.text }}</span>
-          </transition-group>
-          <p>I'm a creative Fullstack Developer who loves to create elegant and functional user interfaces and web apps</p>
+            <span id="name"><span class="char" v-for="(char, index) in chars" :key="char.id" :data-index="index">{{ char.text }}</span></span>
+          </h1>
+          <hr>
+          <p><span>I'm a creative Fullstack Developer who loves to create elegant and functional user interfaces and web apps</span></p>
           <div class="buttons">
-            <a @click="scrollToElement('.work')">See my work</a>
-            <a>Contact me</a>
+            <a  class="button" @click="scrollToElement('.work')">See my work</a>
+            <a class="button" >Contact me</a>
           </div>
         </div>
   
         <img class="tiagoImg" src="@/assets/tiago.png" alt="">
         
-        
+        <!-- <div class="animated-title">
+          <div class="text-top">
+            <div>
+              <span>mimicking</span>
+              <span>apple's design</span>
+            </div>
+          </div>
+          <div class="text-bottom">
+            <div>for the win!</div>
+          </div>
+        </div> -->
       </section>
       <section class="work">
         <h1>My latest work</h1>
@@ -193,6 +200,30 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 
+.hero {
+  height: 100vh
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+@keyframes showTopText {
+  0% { transform: translate3d(0, 100%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+@keyframes showBottomText {
+  0% { transform: translate3d(0, -300%, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
 $whiteBlue: #E7ECEF;
 $darkBlue: #274C77;
 $normalBlue: #6aa7cf;
@@ -207,13 +238,17 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 
   .tiagoImg {
     position: absolute;
-    width: 50%;
+    display: inline-block;
+    width: 45%;
     right: 0;
     bottom: 0;
     z-index: 1;
+    transform: translateY(100%);
+    animation: fadeIn 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   }
 
   .heroText {
@@ -226,15 +261,32 @@ section {
 
     h2 {
       font-size: 20px;
-      margin-bottom: -30px;
+      padding-left: 20px;
+      margin-bottom: -25px;
+      overflow: hidden;
+
+      span {
+        display: block;
+        transform: translate3d(0, -100%, 0);
+        animation: showTopText 1s 0.3s forwards;
+      }
+      
     }
 
     h1 {
       font-size: 120px;
+      padding-left: 20px;
+      overflow: hidden;
+
+      #name {
+        display: block;
+        transform: translate3d(0, -400px, 0);
+        animation: showTopText 1s 0.8s forwards;
+      }
 
       .char {
         display: inline-block;
-        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transition: all 0.5s $easing;
 
         &:hover {
           color: $normalBlue;
@@ -247,14 +299,32 @@ section {
       }
     }
 
+    hr {
+      width: 96%;
+      border: 1px solid $darkBlue;
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+
     p {
       width: 500px;
       font-size: 20px;
+      padding-left: 20px;
+      overflow: hidden;
+
+    
+        span {
+        display: block;
+        transform: translate3d(0, 100%, 0);
+        animation: showBottomText 1s 1.3s 1 normal forwards;
+        }
     }
 
     .buttons {
       margin-top: 25px;
+      padding-left: 20px;
       display: flex;
+      overflow: hidden;
 
       a {
         opacity: 1;
@@ -270,6 +340,8 @@ section {
         line-height: 1.5;
         text-align: center;
         border-radius: 0.5rem;
+        transform: translateY(-400%);
+        transition: transform 0.5s $easing;
 
         &:last-child {
           margin-left: 30px;
@@ -279,24 +351,12 @@ section {
         }
 
         &:hover {
-          animation: standOut $easing 0.5s alternate both;
+          transform: rotate(2deg) scale(1.09, 1.09) translateX(1px) translateY(1px);
         }
+      }
 
-        @keyframes standOut {
-
-          0% {
-            transform: rotate(0deg) scale(1, 1) translateX(0px) translateY(0px);
-          }
-
-          90% {
-            transform: rotate(2deg) scale(1.1, 1.1) translateX(1px) translateY(1px);
-          }
-
-          100% {
-            transform: rotate(2deg) scale(1.09, 1.09) translateX(1px) translateY(1px);
-          }
-          
-        }
+      .button {
+        animation: showBottomText 1s 1.3s 1 normal forwards;
       }
     }
 }
