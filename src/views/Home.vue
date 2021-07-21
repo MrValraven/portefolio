@@ -229,6 +229,7 @@ $darkBlue: #274C77;
 $normalBlue: #6aa7cf;
 $lightBlue: #A3CEF1;
 $easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
+$fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 section {
   padding: 25px 100px 100px 100px;
@@ -286,10 +287,12 @@ section {
 
       .char {
         display: inline-block;
-        transition: all 0.5s $easing;
+        transition: all 0.5s $fastEasing;
 
         &:hover {
           color: $normalBlue;
+          cursor: default;
+          opacity: 1;
           transform: rotate(-5deg) scale(1.1, 1.1) translateX(-5px) translateY(-5px) !important;
         }
 
