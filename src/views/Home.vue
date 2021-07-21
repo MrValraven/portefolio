@@ -4,17 +4,6 @@
     <Navbar v-if="!mobileMode" class="navbar" />
     <div v-if="!activatedNavbar" class="pageContent">
       <section class="hero">
-       <!--  <div class="image" :style="{ 'background-image': 'url(' + image + ')' }"></div>
-        <div class="labels">
-          <div class="designer">
-            <h1>Designer</h1>
-            <p>A UI/UX Designer with a passion to create beautifull and functional user experiences</p>
-          </div>
-          <div class="developer">
-            <h1>&lt;Developer&gt;</h1>
-            <p>A Fullstack developer who focuses on writing clean, elegant and efficient code </p>
-          </div>
-        </div> -->
         <div class="heroText">
           <h2><span>Hi there 👋, I'm</span></h2>
           <h1
@@ -25,8 +14,10 @@
           <hr>
           <p><span>I'm a creative Fullstack Developer who loves to create elegant and functional user interfaces and web apps</span></p>
           <div class="buttons">
-            <a  class="button" @click="scrollToElement('.work')">See my work</a>
-            <a class="button" >Contact me</a>
+            <div class="buttoes">
+              <Button @click="scrollToElement('.work')" buttonText="See my work"/>
+              <Button buttonText="Contact me" />
+            </div>
           </div>
         </div>
   
@@ -45,7 +36,7 @@
         </div> -->
       </section>
       <section class="work">
-        <h1>My latest work</h1>
+        <h1>My latest work <i class="fas fa-laptop-code"></i></h1>
         <ul class="projects">
           <li>
             <img src="@/assets/work/seistetos.jpg" alt="">
@@ -56,8 +47,8 @@
               <h3>TechStack:</h3>
               <p>HTML5, Sass, Vue.js, Vue Router, Typescript</p>
               <div class="links">
-                <a href="https://github.com/MrValraven/seistetos">Source code</a>
-                <a class="liveWebsite" href="https://www.seistetos.uevora.pt/#/">Live Website</a>
+                <Button buttonText="Source code" link="https://github.com/MrValraven/seistetos" />
+                <Button buttonText="Live Website" link="https://www.seistetos.uevora.pt/#/" />
               </div>
             </div>
           </li>
@@ -117,6 +108,7 @@ import { defineComponent } from 'vue';
 import Navbar from '../components/Navbar.vue';
 import NavbarMobile from '../components/NavbarMobile.vue';
 import ScrollToTopButton from '../components/ScrollToTopButton.vue';
+import Button from '../components/Button.vue';
 import gsap from 'gsap';
 
 export default defineComponent({
@@ -165,6 +157,7 @@ export default defineComponent({
     Navbar,
     NavbarMobile,
     ScrollToTopButton,
+    Button,
   },
   created() {
     window.addEventListener('scroll', this.handleScroll);
@@ -232,7 +225,7 @@ $easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
 $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 section {
-  padding: 25px 100px 100px 100px;
+  padding: 100px;
 }
 
 .hero {
@@ -240,6 +233,7 @@ section {
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  padding-top: 25px;
 
   .tiagoImg {
     position: absolute;
@@ -268,7 +262,7 @@ section {
 
       span {
         display: block;
-        transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -400px, 0);
         animation: showTopText 1s 0.3s forwards;
       }
       
@@ -282,7 +276,7 @@ section {
       #name {
         display: block;
         transform: translate3d(0, -400px, 0);
-        animation: showTopText 1s 0.8s forwards;
+        animation: showTopText 1s 0.3s forwards;
       }
 
       .char {
@@ -304,6 +298,7 @@ section {
 
     hr {
       width: 96%;
+      background-color: $darkBlue;
       border: 1px solid $darkBlue;
       margin-left: 20px;
       margin-bottom: 20px;
@@ -319,101 +314,38 @@ section {
         span {
         display: block;
         transform: translate3d(0, 100%, 0);
-        animation: showBottomText 1s 1.3s 1 normal forwards;
+        animation: showBottomText 1s 0.6s 1 normal forwards;
         }
     }
 
     .buttons {
-      margin-top: 25px;
       padding-left: 20px;
       display: flex;
       overflow: hidden;
 
-      a {
-        opacity: 1;
-        color: $whiteBlue;
-        background-color: $darkBlue;
-        border: 1px solid $normalBlue;
-        padding-left: 1.5rem;
+      .buttoes {
+        width: 100%;
+        height: 100%;
+        animation: showBottomText 1s 0.6s 1 normal forwards;
         padding-right: 1.5rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        font-size: 1.125rem;
-        font-weight: 500;
-        line-height: 1.5;
-        text-align: center;
-        border-radius: 0.5rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
         transform: translateY(-400%);
-        transition: transform 0.5s $easing;
 
-        &:last-child {
-          margin-left: 30px;
-          color: $darkBlue;
-          background-color: $whiteBlue;
-          border: 1px solid $darkBlue;
-        }
-
-        &:hover {
-          transform: rotate(2deg) scale(1.09, 1.09) translateX(1px) translateY(1px);
-        }
-      }
-
-      .button {
-        animation: showBottomText 1s 1.3s 1 normal forwards;
       }
     }
-}
-
-    /* .image {
-      position: absolute;
-      background-position: center;
-      background-size: cover;
-      height: 100%;
-      width: 100%;
-      background-position: center;
-      background-size: cover;
-      z-index: 1;
-    }
-
-    .labels {
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      z-index: 3;
-      border: 2px solid yellow;
-
-      .designer,
-      .developer {
-        border: 2px solid red;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        width: 30%;
-        color: #2c3e50;
-
-        h1 {
-          font-size: 70px;
-        }
-
-        p {
-          width: 80%;
-          font-size: 18px;
-        }
-      }
-    } */
   }
+}
 
 .work {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: flex-start;  
   flex-direction: column;
 
   h1 {
     font-size: 50px;
+    font-weight: 600;
     margin-bottom: 50px;
   }
 
@@ -431,6 +363,7 @@ section {
     
     h2 {
       font-size: 50px;
+      font-weight: 500;
       margin-bottom: 25px;
     }
 

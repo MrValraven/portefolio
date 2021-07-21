@@ -53,7 +53,7 @@ $darkBlue: #274C77;
         width: 50px;
         position: absolute;
         top: 15px;
-        left: 40px;
+        left: 120px;
       }
     }
     ul {
@@ -66,10 +66,7 @@ $darkBlue: #274C77;
           font-weight: bold;
           font-family: monospace;
           color: $darkBlue;
-
-          &.router-link-exact-active {
-            /* border-bottom: 1px solid black; */
-          }
+          transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
           i {
             font-size: 30px;
