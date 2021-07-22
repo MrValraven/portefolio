@@ -17,6 +17,7 @@ $lightBlue: #A3CEF1;
   -moz-osx-font-smoothing: grayscale;
   color: $darkBlue;
   background-color: $whiteBlue;
+  cursor: default;
 }
 
 body {

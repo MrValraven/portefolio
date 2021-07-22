@@ -35,19 +35,19 @@ a {
     font-weight: 500;
     line-height: 1.5;
     text-align: center;
-     border-radius: 0.5rem;
+    border-radius: 0.5rem;
     transition: transform 1s $fastEasing ;
 
-    &:last-child {
+    &:hover {
+        transform: translateX(10px) !important;
+    }
+}
+
+.lastButton {
     margin-left: 30px;
     color: $darkBlue;
     background-color: $whiteBlue;
     border: 1px solid $darkBlue;
-    }
-
-    &:hover {
-    transform: translateY(10px) !important;
-    }
 }
 
 </style>

@@ -16,41 +16,44 @@
           <div class="buttons">
             <div class="buttoes">
               <Button @click="scrollToElement('.work')" buttonText="See my work"/>
-              <Button buttonText="Contact me" />
+              <Button class="lastButton" buttonText="Contact me" />
             </div>
           </div>
         </div>
   
         <img class="tiagoImg" src="@/assets/tiago.png" alt="">
-        
-        <!-- <div class="animated-title">
-          <div class="text-top">
-            <div>
-              <span>mimicking</span>
-              <span>apple's design</span>
-            </div>
-          </div>
-          <div class="text-bottom">
-            <div>for the win!</div>
-          </div>
-        </div> -->
       </section>
       <section class="work">
-        <h1>My latest work <i class="fas fa-laptop-code"></i></h1>
         <ul class="projects">
           <li>
-            <img src="@/assets/work/seistetos.jpg" alt="">
             <div class="cardtext">
-              <h2>Grupo Académico Seistetos</h2>
-              <p>A simple website redesign and development, bringing this university group's website up to date with a new and fresh layout.</p>
-              <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p>
-              <h3>TechStack:</h3>
-              <p>HTML5, Sass, Vue.js, Vue Router, Typescript</p>
+              <h2><span>Grupo Académico Seistetos</span></h2>
+              <h3><span>Front-end development and UX/UI Website Design</span></h3>
+              <p><span>A simple website redesign and development, bringing this university group's website up to date with a new and fresh layout.</span></p>
+             <!--  <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p> -->
+              <h4><span>TechStack:</span></h4>
+              <p class="tech"><span>HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
               <div class="links">
-                <Button buttonText="Source code" link="https://github.com/MrValraven/seistetos" />
                 <Button buttonText="Live Website" link="https://www.seistetos.uevora.pt/#/" />
+                <Button class="lastButton" buttonText="Source Code" link="https://github.com/MrValraven/seistetos" />
               </div>
             </div>
+            <img class="mainImage" src="@/assets/work/seistetos/seistetos.jpg" alt="">
+            <img class id="hoverImg" src="@/assets/work/seistetos/seistetosLogo.png" alt="">
+          </li>
+          <li>
+            <div class="cardtext">
+              <h2>Expo Estudante</h2>
+              <h3>Front-end development</h3>
+              <p>A modern approach to the upcoming technology and student oriented event in Évora, Portugal.</p>
+
+              <h4>TechStack:</h4>
+              <p class="tech">HTML5, Sass, Vue.js, Vue Router, Typescript</p>
+              <div class="links">
+                <Button buttonText="Live Website" link="https://expoestudante.aaue.pt/#/" />
+              </div>
+            </div>
+            <img class="mainImage" src="@/assets/work/expoestudante/expoestudante.jpg" alt="">
           </li>
         </ul>
       </section>
@@ -193,10 +196,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 
-.hero {
-  height: 100vh
-}
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:700');
 @keyframes showTopText {
   0% { transform: translate3d(0, 100%, 0); }
@@ -233,11 +232,13 @@ section {
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+  height: 100vh;
+  border-bottom: 2px solid $darkBlue;
   padding-top: 25px;
 
   .tiagoImg {
     position: absolute;
-    display: inline-block;
+    display: block;
     width: 45%;
     right: 0;
     bottom: 0;
@@ -342,54 +343,109 @@ section {
   justify-content: center;
   align-items: flex-start;  
   flex-direction: column;
+  position: relative;
 
-  h1 {
-    font-size: 50px;
-    font-weight: 600;
-    margin-bottom: 50px;
-  }
-
-  img {
-    width: 600px;
+  .mainImage {
+    width: 55%;
+    border: 5px solid black;
+    border-radius: 16px;
     margin-right: 25px;
+    box-shadow: 0px 5px 25px 0px rgba($color: #000000, $alpha: 0.3);
   }
 
-  .projects li {
-    display: flex;
-    
+  #hoverImg {
+    position: absolute;
+    height: 400px;
+    left: 38%;
+    bottom: 55%;
   }
+
+  .projects {
+    width: 100%;
+    height: 100%;
+
+    li {
+      display: flex;
+      height: 70vh;
+      border-bottom: 2px solid lighten($color: $lightBlue, $amount: 10%);
+      padding-bottom: 10vh;
+      margin-bottom: 10vh;
+      
+    }
+  }
+  
+  
 
   .cardtext {
+    margin-left: 5px;
     
     h2 {
-      font-size: 50px;
+      font-size: 70px;
       font-weight: 500;
-      margin-bottom: 25px;
+      margin-left: -5px;
+      line-height: 60px;
+      overflow: hidden;
+
+      span {
+        display: block;
+        transform: translate3d(0, -400px, 0);
+        animation: showTopText 1s 0.3s forwards;
+      }
+    }
+
+     h3 {
+      font-size: 16px;
+      font-weight: 300;
+      opacity: 0.8;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      overflow: hidden;
+
+       span {
+        display: block;
+        transform: translate3d(0, -400%, 0);
+        animation: showTopText 1s 0.4s forwards;
+      }
     }
 
     p {
+      width: 70%;
+      font-size: 30px;
+      margin-bottom: 30px;
+      overflow: hidden;
+
+       span {
+        display: block;
+        transform: translate3d(0, -400%, 0);
+        animation: showTopText 1s 0.7s forwards;
+      }
+    }
+
+    h4 {
+      font-size: 25px;
+      overflow: hidden;
+
+       span {
+        display: block;
+        transform: translate3d(0, -400%, 0);
+        animation: showTopText 1s 0.8s forwards;
+      }
+    }
+
+    .tech {
       font-size: 16px;
-      margin-bottom: 15px;
+      opacity: 0.8;
+      overflow: hidden;
+
+       span {
+        display: block;
+        transform: translate3d(0, -400%, 0);
+        animation: showTopText 1s 0.9s forwards;
+      }
     }
 
-    h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    
     .links {
-      
-
-      a {
-        background-color: #2c3e50;
-        color: white;
-        padding: 10px;
-        transition: all 0.2s ease-in;
-      }
-
-      .liveWebsite {
-        margin-left: 10px;
-      }
+      margin-top: 50px;
     }
   }
 }
