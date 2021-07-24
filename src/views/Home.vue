@@ -20,8 +20,9 @@
             </div>
           </div>
         </div>
-  
-        <img class="tiagoImg" src="@/assets/tiago.png" alt="">
+        <div class="imgContainer">
+          <img class="tiagoImg" src="@/assets/tiago.png" alt="">
+        </div>
       </section>
       <section class="work">
         <ul class="projects">
@@ -29,13 +30,28 @@
             <div class="cardtext">
               <h2><span>Grupo Académico Seistetos</span></h2>
               <h3><span>Front-end development and UX/UI Website Design</span></h3>
-              <p><span>A simple website redesign and development, bringing this university group's website up to date with a new and fresh layout.</span></p>
+              <p>
+                <span class="line1" >
+                  <span id="span1" >A simple website redesign and </span>
+                </span>
+                <span class="line1" >
+                  <span id="span2">development, bringing this</span>
+                </span>
+                <span class="line1" >
+                  <span id="span3">university group's website up to</span>
+                </span>
+                <span class="line1">
+                  <span id="span4">date with a new and fresh layout.</span>
+                </span>
+              </p>
              <!--  <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p> -->
               <h4><span>TechStack:</span></h4>
               <p class="tech"><span>HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
               <div class="links">
-                <Button buttonText="Live Website" link="https://www.seistetos.uevora.pt/#/" />
-                <Button class="lastButton" buttonText="Source Code" link="https://github.com/MrValraven/seistetos" />
+                <div class="link">
+                  <Button buttonText="Live Website" link="https://www.seistetos.uevora.pt/#/" />
+                  <Button class="lastButton" buttonText="Source Code" link="https://github.com/MrValraven/seistetos" />
+                </div>
               </div>
             </div>
             <img class="mainImage" src="@/assets/work/seistetos/seistetos.jpg" alt="">
@@ -199,8 +215,13 @@ export default defineComponent({
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:700');
 @keyframes showTopText {
-  0% { transform: translate3d(0, 100%, 0); }
-  100% { transform: translate3d(0, 0, 0); }
+  0% { 
+    transform: translate3d(0, 100%, 0);
+   }
+
+  100% { 
+    transform: translate3d(0, 0, 0); 
+  }
 }
 @keyframes showBottomText {
   0% { transform: translate3d(0, -300%, 0); }
@@ -237,16 +258,24 @@ section {
   border-bottom: 2px solid $darkBlue;
   padding-top: 25px;
 
-  .tiagoImg {
-    position: absolute;
-    display: block;
+  .imgContainer {
+    display: inline-flex;
+    overflow: hidden;
     width: 45%;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    transform: translateY(100%);
-    animation: fadeIn 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    border: 2px solid red;
+
+    .tiagoImg {
+      position: absolute;
+      display: block;
+      width: 45%;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      transform: translateY(-100%);
+      animation: fadeIn 1s  forwards;
+    }
   }
+
 
   .heroText {
     height: 100vh;
@@ -314,10 +343,11 @@ section {
 
     
         span {
-        display: block;
-        transform: translate3d(0, 100%, 0);
-        animation: showBottomText 1s 0.6s 1 normal forwards;
+          display: block;
+          transform: translate3d(0, 100%, 0);
+          animation: showBottomText 1s 0.6s 1 normal forwards;
         }
+
     }
 
     .buttons {
@@ -338,6 +368,7 @@ section {
     }
   }
 }
+
 
 .work {
   display: flex;
@@ -379,8 +410,10 @@ section {
 
   .cardtext {
     margin-left: 5px;
+
     
     h2 {
+      display: inline-flex;
       font-size: 70px;
       font-weight: 500;
       margin-left: -5px;
@@ -389,7 +422,7 @@ section {
 
       span {
         display: block;
-        transform: translate3d(0, -400px, 0);
+        transform: translate3d(0, -400%, 0);
         animation: showTopText 1s 0.3s forwards;
       }
     }
@@ -415,10 +448,42 @@ section {
       margin-bottom: 30px;
       overflow: hidden;
 
-       span {
+      .line1 {
+        display: inline-flex;
+        transform: translate3d(0, 0%, 0);
+        overflow: hidden;
+      }
+
+      #span1 {
         display: block;
+        animation-delay: 0.7s !important;
         transform: translate3d(0, -400%, 0);
         animation: showTopText 1s 0.7s forwards;
+
+      }
+      #span2 {
+        display: block;
+        animation-delay: 0.8s !important;
+        transform: translate3d(0, -400%, 0);
+        animation: showTopText 1s 0.8s forwards;
+        line-height: 1.4em;
+
+      }
+      #span3 {
+        display: block;
+        animation-delay: 0.9s !important;
+        transform: translate3d(0, -400%, 0);
+        animation: showTopText 1s 0.8s forwards;
+        line-height: 1.4em;
+
+      }
+      #span4 {
+        display: block;
+        animation-delay: 1s !important;
+        transform: translate3d(0, -400%, 0);
+        animation: showTopText 1s 1.0s forwards;
+        line-height: 1.4em;
+
       }
     }
 
@@ -429,7 +494,7 @@ section {
        span {
         display: block;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 0.8s forwards;
+        animation: showTopText 1s 1.1s forwards;
       }
     }
 
@@ -441,12 +506,19 @@ section {
        span {
         display: block;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 0.9s forwards;
+        animation: showTopText 1s 1.2s forwards;
       }
     }
 
     .links {
-      margin-top: 50px;
+      margin-top: 30px;
+      padding: 20px 0 20px 0;
+      overflow: hidden;
+
+      .link {
+        transform: translate3d(0, -400%, 0);
+        animation: showTopText 1s 1.3s forwards;
+      }
     }
   }
 }
