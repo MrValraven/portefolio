@@ -59,18 +59,34 @@
           </li>
           <li>
             <div class="cardtext">
-              <h2>Expo Estudante</h2>
-              <h3>Front-end development</h3>
-              <p>A modern approach to the upcoming technology and student oriented event in Évora, Portugal.</p>
-
-              <h4>TechStack:</h4>
-              <p class="tech">HTML5, Sass, Vue.js, Vue Router, Typescript</p>
+              <h2><span>Expo Estudante</span></h2>
+              <h3><span>Front-end development</span></h3>
+              <p>
+                <span class="line1" >
+                  <span id="span1" >A modern approach to the </span>
+                </span>
+                <span class="line1" >
+                  <span id="span2">upcoming technology and</span>
+                </span>
+                <span class="line1" >
+                  <span id="span3">student oriented event in</span>
+                </span>
+                <span class="line1">
+                  <span id="span4">Évora, Portugal.</span>
+                </span>
+              </p>
+             <!--  <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p> -->
+              <h4><span>TechStack:</span></h4>
+              <p class="tech"><span>HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
               <div class="links">
-                <Button buttonText="Live Website" link="https://expoestudante.aaue.pt/#/" />
+                <div class="link">
+                  <Button buttonText="Live Website" link="https://expoestudante.aaue.pt/#/" />
+                </div>
               </div>
             </div>
             <img class="mainImage" src="@/assets/work/expoestudante/expoestudante.jpg" alt="">
-          </li>
+            <img class id="hoverExpo" src="@/assets/work/expoestudante/logo.png" alt="">
+          </li>     
         </ul>
       </section>
       <section class="about" v-if="finished">
@@ -385,14 +401,8 @@ section {
     border: 5px solid black;
     border-radius: 16px;
     margin-right: 25px;
+    filter: grayscale(30%);
     box-shadow: 0px 5px 25px 0px rgba($color: #000000, $alpha: 0.3);
-  }
-
-  #hoverImg {
-    position: absolute;
-    height: 400px;
-    left: 38%;
-    bottom: 55%;
   }
 
   .projects {
@@ -401,10 +411,27 @@ section {
 
     li {
       display: flex;
+      position: relative;
       min-height: 70vh;
       border-bottom: 2px solid #cecccc9a;
       padding-bottom: 10vh;
       margin-bottom: 10vh;
+
+
+      #hoverImg {
+        position: absolute;
+        height: 400px;
+        left: 38.5%;
+        bottom: 0%;
+      }
+
+      #hoverExpo {
+        position: absolute;
+        height: 300px;
+        left: 37%;
+        bottom: 4%;
+      }
+
       
     }
   }
@@ -413,6 +440,7 @@ section {
 
   .cardtext {
     margin-left: 5px;
+    min-width: 45%;
 
     
     h2 {

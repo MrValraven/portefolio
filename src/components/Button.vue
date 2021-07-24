@@ -41,6 +41,7 @@ $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
 
     &:hover {
         transform: translateY(-5px) !important;
+        box-shadow: 0px 2px 10px 0px rgba($color: #000000, $alpha: 0.25);
     }
 }
 
