@@ -381,7 +381,7 @@ section {
   position: relative;
 
   .mainImage {
-    width: 55%;
+    min-width: 55%;
     border: 5px solid black;
     border-radius: 16px;
     margin-right: 25px;
