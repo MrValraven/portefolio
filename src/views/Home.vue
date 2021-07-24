@@ -9,7 +9,12 @@
           <h1
           class="chars" 
           >
-            <span id="name"><span class="char" v-for="(char, index) in chars" :key="char.id" :data-index="index">{{ char.text }}</span></span>
+            <span id="name" class="firstName">
+              <span class="char" v-for="(char, index) in chars" :key="char.id" :data-index="index">{{ char.text }}</span>
+            </span> 
+            <span id="name" class="lastName">
+              <span class="char" v-for="(char, index) in chars2" :key="char.id" :data-index="index">{{ char.text }}</span>
+            </span>
           </h1>
           <hr>
           <p><span>I'm a creative Fullstack Developer who loves to create elegant and functional user interfaces and web apps</span></p>
@@ -155,12 +160,14 @@ export default defineComponent({
             {id: 2, text: "a"},
             {id: 3, text: "g"},
             {id: 4, text: "o"},
+        ]
+        const chars2 = [ 
             {id: 5, text: "C"},
             {id: 6, text: "o"},
             {id: 7, text: "s"},
             {id: 8, text: "t"},
             {id: 9, text: "a"},
-        ]
+          ]
         const beforeEnter: any = (el: any) => {
             el.style.opacity = 0;
             el.style.transform = 'rotate(-5deg) scale(1.1, 1.1) translateX(-10px) translateY(-10px)';
@@ -178,7 +185,7 @@ export default defineComponent({
                 delay: el.dataset.index * 0.1,
             });
         }
-        return { chars, beforeEnter, enter }
+        return { chars, chars2, beforeEnter, enter }
     },
   data() {
     return {
@@ -319,6 +326,7 @@ section {
     }
 
     h1 {
+      display: flex;
       font-size: 120px;
       padding-left: 20px;
       overflow: hidden;
@@ -327,6 +335,10 @@ section {
         display: block;
         transform: translate3d(0, -400px, 0);
         animation: showTopText 1s 0.3s forwards;
+      }
+
+      .firstName {
+        margin-right: 20px;
       }
 
       .char {
@@ -385,6 +397,21 @@ section {
 
       }
     }
+  }
+}
+
+@media (max-width: 1450px) {
+  .hero .heroText h1 {
+    flex-direction: column;
+    padding-right: 0;
+
+    .firstName {
+      margin-bottom: -50px;
+    }
+  }
+
+  .hero .imgContainer {
+    width: 55%;
   }
 }
 
@@ -549,6 +576,35 @@ section {
       .link {
         transform: translate3d(0, -400%, 0);
         animation: showTopText 1s 1.3s forwards;
+      }
+    }
+  }
+}
+
+@media (max-width: 1680px) {
+
+  section {
+    padding: 60px;
+  }
+
+  .work {
+
+    .projects li #hoverImg {
+      left: 37%;
+    }
+
+    .cardtext {
+
+      h2 {
+        font-size: 60px;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      h4 {
+        font-size: 20px;
       }
     }
   }

@@ -14,6 +14,8 @@
         <li><router-link class="navLinks" :to="{ name: 'Home' }">.contacts<span>()</span></router-link></li>
         <li><a  href="https://github.com/MrValraven" target="_blank"><i id="github" class="fab fa-github"></i></a></li>
         <li><a  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank"><i id="linkedin" class="fab fa-linkedin"></i></a></li>
+        <li><a><i class="fas fa-moon"></i></a></li>
+        <li><a><i class="fas fa-sun"></i></a></li>
       </ul>
 	  </nav>
   </header>
@@ -87,6 +89,12 @@ $darkBlue: #274C77;
         }  
       }
     }
+  }
+}
+
+@media (max-width: 1680px) {
+  .header #nav .logo img {
+    left: 70px;
   }
 }
 </style>
