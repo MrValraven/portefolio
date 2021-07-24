@@ -57,7 +57,7 @@
           </li>
         </ul>
       </section>
-      <section class="about">
+      <section class="about" v-if="finished">
         <div class="aboutMe">
           <h1>But who is this guy?</h1>
           <div class="card">
@@ -86,18 +86,18 @@
         </div>
         
       </section>
-      <section class="estrutura">
+      <section class="estrutura" v-if="finished">
         <h1>Hero</h1>
         <h1>work</h1>
         <h1>Skills</h1>
         <h1>But who's this guy?</h1>
         <h1>Contact me</h1>
       </section>
-      <section class="frases">
+      <section class="frases" v-if="finished">
         <h1>It's important to think outside of the box</h1>
         <h1>show personality</h1>
       </section>
-      <section class="funthings">
+      <section class="funthings" v-if="finished">
         <div>
           <h1>About me</h1>
         </div>
@@ -153,6 +153,7 @@ export default defineComponent({
       activatedNavbar: false,
       isAtTop: true,
       mobileMode: false,
+      finished: false,
       image: 'https://i.pinimg.com/originals/e3/66/87/e366871039caf5afd17b0bcfecb453cb.jpg',
     }
   },
@@ -367,7 +368,7 @@ section {
     li {
       display: flex;
       height: 70vh;
-      border-bottom: 2px solid lighten($color: $lightBlue, $amount: 10%);
+      border-bottom: 2px solid #cecccc9a;
       padding-bottom: 10vh;
       margin-bottom: 10vh;
       
