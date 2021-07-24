@@ -257,17 +257,20 @@ section {
   height: 100vh;
   border-bottom: 2px solid $darkBlue;
   padding-top: 25px;
+  padding-bottom: 0;
+  padding-right: 0;
 
   .imgContainer {
-    display: inline-flex;
     overflow: hidden;
+    position: relative;
     width: 45%;
-    border: 2px solid red;
+    height: 100vh;
+    padding-top: -100px;
 
     .tiagoImg {
       position: absolute;
       display: block;
-      width: 45%;
+      width: 100%;
       right: 0;
       bottom: 0;
       z-index: 1;
