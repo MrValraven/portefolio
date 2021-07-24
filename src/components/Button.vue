@@ -22,8 +22,8 @@ $lightBlue: #A3CEF1;
 $easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
 $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
 
-a {
-    opacity: 1;
+.button {
+    display: inline-block;
     color: $whiteBlue;
     background-color: $darkBlue;
     border: 1px solid $normalBlue;
@@ -35,11 +35,12 @@ a {
     font-weight: 500;
     line-height: 1.5;
     text-align: center;
+    opacity: 1;
     border-radius: 0.5rem;
-    transition: transform 1s $fastEasing ;
+    transition: all 0.5s $fastEasing ;
 
     &:hover {
-        transform: translateX(10px) !important;
+        transform: translateY(-5px) !important;
     }
 }
 

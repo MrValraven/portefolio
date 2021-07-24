@@ -66,7 +66,11 @@ $darkBlue: #274C77;
           font-weight: bold;
           font-family: monospace;
           color: $darkBlue;
-          transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+          transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+
+          &:hover {
+            opacity: 1;
+          }
 
           i {
             font-size: 30px;

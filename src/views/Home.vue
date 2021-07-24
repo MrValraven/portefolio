@@ -401,7 +401,7 @@ section {
 
     li {
       display: flex;
-      height: 70vh;
+      min-height: 70vh;
       border-bottom: 2px solid #cecccc9a;
       padding-bottom: 10vh;
       margin-bottom: 10vh;
