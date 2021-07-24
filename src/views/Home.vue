@@ -94,23 +94,64 @@
           </li>     
         </ul>
       </section>
-      <section class="about" v-if="finished">
+      <section class="about">
         <div class="aboutMe">
-          <h1>But who is this guy?</h1>
           <div class="card">
-            <div class="content">
-              <h2>Tiago Costa</h2>
-              <p>I'm a college senior majoring Computer Science</p>
-              <a href="#">Sabe mais</a>
-            </div>
-            <img class="image" src="@/assets/me.png" alt="">
+            <h1 class="title">Home.vue - portefolio - Visual Studio Code</h1>
+            <h1 class="file"><span>Home.vue <i class="fas fa-times"></i></span></h1>
+            <h2>src
+              <i class="fas fa-chevron-right"></i> 
+              views
+              <i class="fas fa-chevron-right"></i> 
+              <b>{}</b> "Home.vue" 
+              <i class="fas fa-chevron-right"></i> 
+              <i class="fas fa-box"></i>
+              template
+              <i class="fas fa-chevron-right"></i> 
+              <i class="fas fa-box"></i>
+              div.pageContent
+              <i class="fas fa-chevron-right"></i> 
+              <i class="fas fa-box"></i>
+              div.aboutMe
+              <i class="fas fa-chevron-right"></i> 
+              <i class="fas fa-box"></i>
+              div.card
+              </h2>
+              <div class="editor">
+
+                <div class="lineNumbers">
+                  <p>121</p>
+                  <p>122</p>
+                  <p>123</p>
+                  <p>124</p>
+                  <p>125</p>
+                  <p>127</p>
+                  <p>128</p>
+                  <p>129</p>
+                  <p>130</p>
+                  <p>131</p>
+                  <p>132</p>
+                  <p>133</p>
+                </div>
+                <div class="code">
+                  <p>&nbsp;</p>
+                  <p><span class="code-purple const">const </span><span class="code-red">me </span>= <span class="code-purple"> {</span></p>
+                  <p><span class="code-red">name</span>: <span class="code-green">'Tiago'</span>,</p>
+                  <p><span class="code-red">age</span>: <span class="code-orange">22</span>,</p>
+                  <p><span class="code-red">role</span>: <span class="code-green">'Fullstack Developer'</span>,</p>
+                  <p><span class="code-red">github</span>: <span class="code-green">'https://github.com/MrValraven'</span>,</p>
+                  <p><span class="code-red">IDE</span>: <span class="code-green">'Visual Studio Code'</span></p>
+                  <p>&nbsp;</p>
+                  <p><span class="code-purple">}</span></p>
+                </div>
+              </div>
           </div>
         </div>
         <div class="toolset">
           <h1>My toolset</h1>
           <ul>
             <li>
-              <i class="fab fa-java"></i>
+              <i class="fab fa-java"> tipping effect editor</i>
               <i class="fab fa-js-square"></i>
               <i class="fab fa-node"></i>
               <i class="fab fa-sass"></i>
@@ -265,6 +306,7 @@ $whiteBlue: #E7ECEF;
 $darkBlue: #274C77;
 $normalBlue: #6aa7cf;
 $lightBlue: #A3CEF1;
+$editorBlue: #21313c;
 $easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
 $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
 
@@ -618,65 +660,144 @@ section {
     position: relative;
     width: 600px;
     height: 350px;
-    margin: 20px 20px 0 0;
+    margin: 0px 20px 0 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background: linear-gradient(45deg, #1a2f3f, #7094ce);
-    transition: 0.5s;
+    flex-direction: column;
+    background: $editorBlue;
+    font-family: monospace;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
 
-    .content {
-      position: relative;
-      width: 50%;
-      left: 20%;
-      padding: 20px 20px 20px 40px;
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.5s;
+    .title {
+      font-size: 14px;
+      color: white;
+      opacity: 0.5;
+      padding-top: 5px;
+      font-weight: 300;
+    }
 
-      h2 {
+    .file {
+      width: 100%;
+      font-size: 16px;
+      font-weight: 300;
+      margin-bottom: 5px;
+      color: white;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: darken($color: $editorBlue, $amount: 5%);
+
+      span {
+        font-size: 16px;
+        font-weight: 300;
+        height: 100%;
+        padding: 10px;
         color: white;
-        text-transform: uppercase;
-        font-size: 2.2em;
-        line-height: 1em;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: $editorBlue;
+        border-right: 1px solid black;
+
+        &:hover {
+          filter: brightness(90%);
+        }
       }
+
+      .fa-times {
+        margin-left: 10px;
+        margin-top: 2px;
+        opacity: 0.4;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:active {
+          font-size: 14px;
+        }
+
+      }
+    }
+
+    h2 {
+      width: 800px;
+      font-size: 14px;
+      font-weight: 300;
+      opacity: 0.7;
+      color: white;
+
+      .fa-chevron-right {
+        margin: 0px 5px 0px 5px;
+      }
+
+      .fa-box {
+        margin: 0px 2px 0px 5px;
+        color: #15e6f5;
+      }
+    }
+
+    .editor {
+      display: flex;
+      width: 100%;
+      padding-top: 10px;
+
+      .lineNumbers {
+        min-width: 10%;
+
+        p {
+          color: white;
+          opacity: 0.5;
+          font-weight: 100;
+          font-size: 16px;
+          padding-left: 10px;
+          margin: 5px 0 5px 0;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    .code {
+      padding-left: 40px;
+      min-width: 90%;
 
       p {
         color: white;
+        font-size: 16px;
+        margin: 5px 0 5px 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        .code-orange {
+          color: #fa865c;
+        }
+
+        .code-purple {
+          color: #d270eb;
+        }
+
+        .const {
+          margin-left: -40px;
+        }
+
+        .code-red {
+          color: #f80318;
+        }
+
+        .code-green {
+          color: #74eb70;
+        }
       }
-
-      a {
-        color: black;
-        background-color: white;
-        display: inline-block;
-        padding: 10px 20px;
-        margin-top: 10px;
-        font-weight: 700;
-      }
-    }
-
-    img {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      height: 400px;
-      transition: all 0.3s ease-in;
-    }
-
-    &:hover .content {
-      left: 0%;
-      opacity: 1;
-      visibility: visible;
-    }
-
-    &:hover img {
-      left: 73%;
-      height: 500px;
-
     }
   }
-
+     
   .toolset {
 
     li {
