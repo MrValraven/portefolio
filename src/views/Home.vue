@@ -31,29 +31,29 @@
       </section>
       <section class="work">
         <ul class="projects">
-          <li>
-            <div class="cardtext">
-              <h2><span>Grupo Académico Seistetos</span></h2>
-              <h3><span>Front-end development and UX/UI Website Design</span></h3>
+          <li class="seistetos">
+            <div class="cardtext" :style="{opacity: opacityTeto}">
+              <h2><span :class="{animate: isOnTeto}">Grupo Académico Seistetos</span></h2>
+              <h3><span :class="{animate: isOnTeto}">Front-end development and UX/UI Website Design</span></h3>
               <p>
-                <span class="line1" >
-                  <span id="span1" >A simple website redesign and </span>
+                <span :class="{line1: isOnTeto}"  >
+                  <span :class="{span1: isOnTeto}" >A simple website redesign and </span>
                 </span>
-                <span class="line1" >
-                  <span id="span2">development, bringing this</span>
+                <span :class="{line1: isOnTeto}"  >
+                  <span :class="{span2: isOnTeto}">development, bringing this</span>
                 </span>
-                <span class="line1" >
-                  <span id="span3">university group's website up to</span>
+                <span :class="{line1: isOnTeto}"  >
+                  <span :class="{span3: isOnTeto}">university group's website up to</span>
                 </span>
-                <span class="line1">
-                  <span id="span4">date with a new and fresh layout.</span>
+                <span :class="{line1: isOnTeto}">
+                  <span :class="{span4: isOnTeto}">date with a new and fresh layout.</span>
                 </span>
               </p>
              <!--  <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p> -->
-              <h4><span>TechStack:</span></h4>
-              <p class="tech"><span>HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
+              <h4><span :class="{animate: isOnTeto}">TechStack:</span></h4>
+              <p class="tech"><span :class="{animate: isOnTeto}">HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
               <div class="links">
-                <div class="link">
+                <div :class="{link: isOnTeto}">
                   <Button buttonText="Live Website" link="https://www.seistetos.uevora.pt/#/" />
                   <Button class="lastButton" buttonText="Source Code" link="https://github.com/MrValraven/seistetos" />
                 </div>
@@ -62,29 +62,29 @@
             <img class="mainImage" src="@/assets/work/seistetos/seistetos.jpg" alt="">
             <img class id="hoverImg" src="@/assets/work/seistetos/seistetosLogo.png" alt="">
           </li>
-          <li>
-            <div class="cardtext">
-              <h2><span>Expo Estudante</span></h2>
-              <h3><span>Front-end development</span></h3>
+          <li class="expoestudante">
+            <div class="cardtext" :style="{opacity: opacityExpo}">
+              <h2><span :class="{animate: isOnExpo}">Expo Estudante</span></h2>
+              <h3><span :class="{animate: isOnExpo}">Front-end development</span></h3>
               <p>
-                <span class="line1" >
-                  <span id="span1" >A modern approach to the </span>
+                <span :class="{line1: isOnExpo}">
+                  <span :class="{span1: isOnExpo}">A modern approach to the </span>
                 </span>
-                <span class="line1" >
-                  <span id="span2">upcoming technology and</span>
+                <span  :class="{line1: isOnExpo}">
+                  <span :class="{span2: isOnExpo}">upcoming technology and</span>
                 </span>
-                <span class="line1" >
-                  <span id="span3">student oriented event in</span>
+                <span :class="{line1: isOnExpo}">
+                  <span :class="{span3: isOnExpo}">student oriented event in</span>
                 </span>
-                <span class="line1">
-                  <span id="span4">Évora, Portugal.</span>
+                <span :class="{line1: isOnExpo}">
+                  <span :class="{span4: isOnExpo}">Évora, Portugal.</span>
                 </span>
               </p>
              <!--  <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p> -->
-              <h4><span>TechStack:</span></h4>
-              <p class="tech"><span>HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
+              <h4><span :class="{animate: isOnExpo}">TechStack:</span></h4>
+              <p class="tech"><span :class="{animate: isOnExpo}">HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
               <div class="links">
-                <div class="link">
+                <div class="link" :class="{animate: isOnExpo}">
                   <Button buttonText="Live Website" link="https://expoestudante.aaue.pt/#/" />
                 </div>
               </div>
@@ -135,14 +135,16 @@
                 </div>
                 <div class="code">
                   <p>&nbsp;</p>
-                  <p><span class="code-purple const">const </span><span class="code-red">me </span>= <span class="code-purple"> {</span></p>
-                  <p><span class="code-red">name</span>: <span class="code-green">'Tiago'</span>,</p>
-                  <p><span class="code-red">age</span>: <span class="code-orange">22</span>,</p>
-                  <p><span class="code-red">role</span>: <span class="code-green">'Fullstack Developer'</span>,</p>
-                  <p><span class="code-red">github</span>: <span class="code-green">'https://github.com/MrValraven'</span>,</p>
-                  <p><span class="code-red">IDE</span>: <span class="code-green">'Visual Studio Code typing effect editor'</span></p>
+                  <p><span class="code-purple const"> </span><span id="me" class="code-red"></span ><span id="igual1"></span><span id="parenteses1" class="code-purple"></span></p>
+                  <p><span id="name" class="code-red"></span>: <span id="&quot;Tiago&quot;" class="code-green"></span>,</p>
+                  <p><span id="age" class="code-red"></span>: <span id="idade" class="code-orange"></span>,</p>
+                  <p><span id="role" class="code-red"></span>: <span id="Fullstack Developer" class="code-green"></span>,</p>
+                  <p><span id="github" class="code-red"></span>: <span id="&quot;https://github.com/MrValraven&quot;" class="code-green"></span>,</p>
+                  <p><span id="IDE" class="code-red"></span>: <span id="&quot;Visual Studio Code&quot;" class="code-green"></span></p>
                   <p>&nbsp;</p>
                   <p><span class="code-purple">}</span></p>
+                  <button @click="typeAllCode()">teste</button>
+                  <h1 class="teste">h</h1>
                 </div>
               </div>
           </div>
@@ -268,6 +270,10 @@ export default defineComponent({
       isAtTop: true,
       mobileMode: false,
       finished: false,
+      isOnTeto: false,
+      isOnExpo: false,
+      opacityTeto: 0,
+      opacityExpo: 0,
       image: 'https://i.pinimg.com/originals/e3/66/87/e366871039caf5afd17b0bcfecb453cb.jpg',
     }
   },
@@ -298,6 +304,22 @@ export default defineComponent({
     },
     handleScroll () {
       window.pageYOffset >= 250 ? this.isAtTop = false : this.isAtTop = true;
+
+      let tetoProjectHeight = document.querySelector('.seistetos')?.getBoundingClientRect().top;
+      tetoProjectHeight = Number(tetoProjectHeight);
+
+      if(window.pageYOffset >= tetoProjectHeight - 400) {
+        this.isOnTeto = true;
+        this.opacityTeto = 1;
+      }
+
+      let expoProjectHeight = document.querySelector('.expoestudante')?.getBoundingClientRect().top;
+      expoProjectHeight = Number(expoProjectHeight);
+
+      if(window.pageYOffset >= expoProjectHeight + 200) {
+        this.isOnExpo = true;
+        this.opacityExpo = 1;
+      }
     },
     handleResize () {
       this.mobileMode = window.innerWidth <= 1015;
@@ -305,6 +327,37 @@ export default defineComponent({
         this.activatedNavbar = false;
       }
     },
+
+    async sleepNow(delay: number) {
+      return new Promise((resolve) => setTimeout(resolve,delay));
+    },
+
+    async typeCode(element: string, word: string) {
+      let selectedElement = document.querySelector(element)!;
+
+      let index = 0;
+      let maxIndex = word.length;
+      let letter = "";
+      console.log(word);
+
+      while(index <= maxIndex) {
+        await this.sleepNow(75);
+        letter = word.slice(0, index);
+        selectedElement.textContent = letter;
+        index++;
+      }
+    },
+
+    async typeAllCode() {
+      await this.typeCode('.const' ,'const');
+      await this.typeCode('#me' ,' me');
+       await this.typeCode('#igual1' ,' = ');
+      await this.typeCode('#parenteses1' ,'{');
+      await this.sleepNow(1000);
+      await this.typeCode('#name' ,'name');
+      await this.typeCode('#idade' ,'22');
+      await this.sleepNow(1000);
+    }
   },
 });
 </script>
@@ -313,11 +366,12 @@ export default defineComponent({
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:700');
 @keyframes showTopText {
-  0% { 
+  0% {
     transform: translate3d(0, 100%, 0);
    }
 
   100% { 
+
     transform: translate3d(0, 0, 0); 
   }
 }
@@ -345,7 +399,7 @@ $easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
 $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
 
 section {
-  padding: 100px;
+  padding: 100px 100px 0px 100px;
 }
 
 .hero {
@@ -498,6 +552,7 @@ section {
   align-items: flex-start;  
   flex-direction: column;
   position: relative;
+  padding-bottom: 0;
 
   .mainImage {
     min-width: 55%;
@@ -554,10 +609,10 @@ section {
       line-height: 60px;
       overflow: hidden;
 
-      span {
+      .animate { 
         display: block;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 0.3s forwards;
+        animation: showTopText 1s 0.1s both;
       }
     }
 
@@ -569,10 +624,10 @@ section {
       margin-bottom: 30px;
       overflow: hidden;
 
-       span {
+       .animate {
         display: block;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 0.4s forwards;
+        animation: showTopText 1s 0.2s forwards;
       }
     }
 
@@ -588,34 +643,34 @@ section {
         overflow: hidden;
       }
 
-      #span1 {
+      .span1 {
         display: block;
         animation-delay: 0.7s !important;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 0.7s forwards;
+        animation: showTopText 1s 0.5s forwards;
 
       }
-      #span2 {
+      .span2 {
         display: block;
         animation-delay: 0.8s !important;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 0.8s forwards;
+        animation: showTopText 1s 0.6s forwards;
         line-height: 1.4em;
 
       }
-      #span3 {
+      .span3 {
         display: block;
         animation-delay: 0.9s !important;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 0.8s forwards;
+        animation: showTopText 1s 0.7s forwards;
         line-height: 1.4em;
 
       }
-      #span4 {
+      .span4 {
         display: block;
         animation-delay: 1s !important;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 1.0s forwards;
+        animation: showTopText 1s 0.8s forwards;
         line-height: 1.4em;
 
       }
@@ -625,10 +680,10 @@ section {
       font-size: 25px;
       overflow: hidden;
 
-       span {
+       .animate {
         display: block;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 1.1s forwards;
+        animation: showTopText 1s 0.9s forwards;
       }
     }
 
@@ -637,10 +692,10 @@ section {
       opacity: 0.8;
       overflow: hidden;
 
-       span {
+       .animate {
         display: block;
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 1.2s forwards;
+        animation: showTopText 1s 1.0s forwards;
       }
     }
 
@@ -651,7 +706,7 @@ section {
 
       .link {
         transform: translate3d(0, -400%, 0);
-        animation: showTopText 1s 1.3s forwards;
+        animation: showTopText 1s 1.1s forwards;
       }
     }
   }
