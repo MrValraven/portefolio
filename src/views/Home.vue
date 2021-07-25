@@ -136,15 +136,13 @@
                 <div class="code">
                   <p>&nbsp;</p>
                   <p><span class="code-purple const"> </span><span id="me" class="code-red"></span ><span id="igual1"></span><span id="parenteses1" class="code-purple"></span></p>
-                  <p><span id="name" class="code-red"></span>: <span id="&quot;Tiago&quot;" class="code-green"></span>,</p>
-                  <p><span id="age" class="code-red"></span>: <span id="idade" class="code-orange"></span>,</p>
-                  <p><span id="role" class="code-red"></span>: <span id="Fullstack Developer" class="code-green"></span>,</p>
-                  <p><span id="github" class="code-red"></span>: <span id="&quot;https://github.com/MrValraven&quot;" class="code-green"></span>,</p>
-                  <p><span id="IDE" class="code-red"></span>: <span id="&quot;Visual Studio Code&quot;" class="code-green"></span></p>
+                  <p><span id="nome" class="code-red"></span><span id="doisPontos1"></span> <span id="Tiago" class="code-green"></span><span id="virgula1"></span></p>
+                  <p><span id="age" class="code-red"></span><span id="doisPontos2"></span> <span id="idade" class="code-orange"></span><span id="virgula2"></span></p>
+                  <p><span id="role" class="code-red"></span><span id="doisPontos3"></span> <span id="fullstack" class="code-green"></span><span id="virgula3"></span></p>
+                  <p><span id="git" class="code-red"></span><span id="doisPontos4"></span> <span class="code-green"><a href="https://github.com/MrValraven" target="_blank" id="githubLink" class="code-green"></a></span><span id="virgula4"></span></p>
+                  <p><span id="IDE" class="code-red"></span><span id="doisPontos5"></span> <span id="vscode" class="code-green"></span></p>
                   <p>&nbsp;</p>
-                  <p><span class="code-purple">}</span></p>
-                  <button @click="typeAllCode()">teste</button>
-                  <h1 class="teste">h</h1>
+                  <p><span id="parenteses2" class="code-purple"></span></p>
                 </div>
               </div>
           </div>
@@ -274,6 +272,7 @@ export default defineComponent({
       isOnExpo: false,
       opacityTeto: 0,
       opacityExpo: 0,
+      distance: 700,
       image: 'https://i.pinimg.com/originals/e3/66/87/e366871039caf5afd17b0bcfecb453cb.jpg',
     }
   },
@@ -320,6 +319,15 @@ export default defineComponent({
         this.isOnExpo = true;
         this.opacityExpo = 1;
       }
+
+      let aboutMeHeight = document.querySelector('.aboutMe')?.getBoundingClientRect().top;
+      aboutMeHeight = Number(aboutMeHeight);
+      console.log(aboutMeHeight);
+
+      if(aboutMeHeight < this.distance) {
+        this.typeAllCode();
+        this.distance = -1000000;
+      }
     },
     handleResize () {
       this.mobileMode = window.innerWidth <= 1015;
@@ -341,7 +349,7 @@ export default defineComponent({
       console.log(word);
 
       while(index <= maxIndex) {
-        await this.sleepNow(75);
+        await this.sleepNow(40);
         letter = word.slice(0, index);
         selectedElement.textContent = letter;
         index++;
@@ -349,14 +357,43 @@ export default defineComponent({
     },
 
     async typeAllCode() {
-      await this.typeCode('.const' ,'const');
-      await this.typeCode('#me' ,' me');
-       await this.typeCode('#igual1' ,' = ');
-      await this.typeCode('#parenteses1' ,'{');
-      await this.sleepNow(1000);
-      await this.typeCode('#name' ,'name');
-      await this.typeCode('#idade' ,'22');
-      await this.sleepNow(1000);
+
+      let delay = 400;
+
+      let arrayOfElements = [
+        {element: '.const', text: 'const'},
+        {element: '#me', text: ' me'},
+        {element: '#igual1', text: ' = '},
+        {element: '#parenteses1', text: '{'},
+        {element: '#nome', text: 'name'},
+        {element: '#doisPontos1', text: ':'},
+        {element: '#Tiago', text: '"Tiago"'},
+        {element: '#virgula1', text: ','},
+        {element: '#age', text: 'age'},
+        {element: '#doisPontos2', text: ':'},
+        {element: '#idade', text: '22'},
+        {element: '#virgula2', text: ','},
+        {element: '#role', text: 'role'},
+        {element: '#doisPontos3', text: ':'},
+        {element: '#fullstack', text: '"Fullstack Developer"'},
+        {element: '#virgula3', text: ','},
+        {element: '#git', text: 'github'},
+        {element: '#doisPontos4', text: ':'},
+        {element: '#githubLink', text: '"https://github.com/MrValraven"'},
+        {element: '#virgula4', text: ','},
+        {element: '#IDE', text: 'IDE'},
+        {element: '#doisPontos5', text: ':'},
+        {element: '#vscode', text: '"Visual Studio Code"'},
+        {element: '#parenteses2', text: '}'},
+      ]
+
+      for(let i = 0; i < arrayOfElements.length; i++) {
+        await this.typeCode( arrayOfElements[i].element, arrayOfElements[i].text);
+
+        if(i % 3 === 0) {
+          await this.sleepNow(delay)
+        }
+      }
     }
   },
 });
