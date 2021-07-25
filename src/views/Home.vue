@@ -322,7 +322,6 @@ export default defineComponent({
 
       let aboutMeHeight = document.querySelector('.aboutMe')?.getBoundingClientRect().top;
       aboutMeHeight = Number(aboutMeHeight);
-      console.log(aboutMeHeight);
 
       if(aboutMeHeight < this.distance) {
         this.typeAllCode();
@@ -346,7 +345,6 @@ export default defineComponent({
       let index = 0;
       let maxIndex = word.length;
       let letter = "";
-      console.log(word);
 
       while(index <= maxIndex) {
         await this.sleepNow(40);
@@ -900,6 +898,11 @@ section {
 
         &:first-child {
           margin-top: 0;
+        }
+
+        #githubLink {
+          opacity: 1;
+          text-decoration: underline;
         }
 
         .code-orange {
