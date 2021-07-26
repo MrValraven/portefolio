@@ -261,8 +261,54 @@
           </div>
         </div>
         <div class="toolset">
-          <h1>import { toolset } from 'Home.vue';</h1>
-          <h2>toolset.display();</h2>
+
+          <h1 class="title">main.ts - portefolio - Visual Studio Code</h1>
+          <h1 class="file"><span>main.ts <i class="fas fa-times"></i></span></h1>
+          <h2>src <i class="fas fa-chevron-right"></i> main.ts</h2>
+
+          <div class="editor">
+            <div class="lineNumbers">
+              <li>0</li>
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+              <li>5</li>
+            </div>
+            <div class="finalCode">
+              <p class="toolCode">
+                <span id="import" class="code-purple"></span>
+                <span id="chavetas17" class="code-yellow"></span>
+                <span id="toolset4" class="code-red"></span>
+                <span id="chavetas18" class="code-yellow"></span> 
+                <span id="from" class="code-purple"></span> 
+                <span id="home" class="code-green"></span> 
+                <span id="pontovirgula5" class="code-purple"></span> 
+              </p>
+              <p class="toolCode">
+                <span id="const2" class="code-purple"></span>
+                <span id="toolset5" class="code-red"></span>
+                <span id="igual2"></span>
+                <span id="new" class="code-purple"></span> 
+                <span id="toolset6" class="code-yellow"></span>
+                <span id="parenteses21" class="code-purple"></span>
+                <span id="currentSkills" class="code-red"></span>
+                <span id="parenteses22" class="code-purple"></span>
+                <span id="pontovirgula6"></span>
+              </p>
+              <p class="toolCode">
+                <span id="toolsetFinal" class="code-red"></span>
+                <span id="ponto5" class="code-purple"></span>
+                <span id="display2" class="code-blue"></span>
+                <span id="pontovirgula7"></span>
+              </p>
+            </div>
+          </div>
+          <div :class="{terminalOn: codeEnd}" class="terminal">
+            <p :class="{terminalOnOptions: codeEnd}" class="terminalOptions">Problems Output Debug Console <span>Terminal</span></p>
+            <p class="toolCode lastp"></p>
+          </div>
+          
           <ul>
             <li>
               <svg id="html" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path d="M21.963,11.481l-9.457-0.008l0.224,2.531l9.006,0.007l-0.684,7.587l-5.066,1.4L15.981,23l-5.061-1.409l-0.351-3.968l2.481,0.002l0.182,2.059l2.752,0.746l0.003-0.001v0l2.756-0.741l0.289-3.205l-3.042-0.002l-5.523-0.004L9.807,9l6.19,0.005l6.19,0.005L21.963,11.481z"/><path fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="2" d="M6.309,5l1.749,19.795L15.977,27l7.93-2.191l1.783-19.793L6.309,5z"/></svg>
@@ -387,6 +433,7 @@ export default defineComponent({
       opacityTeto: 0,
       opacityExpo: 0,
       activateTyping: true,
+      codeEnd: false,
       lineNumbers: [121],
       image: 'https://i.pinimg.com/originals/e3/66/87/e366871039caf5afd17b0bcfecb453cb.jpg',
     }
@@ -465,7 +512,7 @@ export default defineComponent({
       let letter = "";
 
       while(index <= maxIndex) {
-        await this.sleepNow(30);
+        await this.sleepNow(20);
         letter = word.slice(0, index);
         selectedElement.textContent = letter;
         index++;
@@ -474,7 +521,7 @@ export default defineComponent({
 
     async typeAllCode() {
 
-      let delay = 200;
+      let delay = 150;
 
       let arrayOfElements = [
         {element: '.const', text: 'const'},
@@ -503,7 +550,7 @@ export default defineComponent({
         {element: '#chavetas2', text: '}'},
         {element: '#class', text: 'class'},
         {element: '#toolset', text: ' Toolset'},
-        {element: '#chavetas3', text: ' }'},
+        {element: '#chavetas3', text: ' {'},
         {element: '#skills', text: 'skills'},
         {element: '#doisPontos6', text: ': '},
         {element: '#chavetas4', text: ' {'},
@@ -575,16 +622,39 @@ export default defineComponent({
         {element: '#toolset2', text: ' Toolset '},
         {element: '#chavetas16', text: '}'},
         {element: '#pontovirgula4', text: ';'},
-        
+        {element: '#import', text: 'import'},
+        {element: '#chavetas17', text: ' { '},
+        {element: '#toolset4', text: 'Toolset'},
+        {element: '#chavetas18', text: ' } '},
+        {element: '#from', text: 'from '},
+        {element: '#home', text: '"./Home.vue"'},
+        {element: '#pontovirgula5', text: ';'},
+        {element: '#const2', text: 'const '},
+        {element: '#toolset5', text: 'toolset '},
+        {element: '#igual2', text: '= '},
+        {element: '#new', text: 'new '},
+        {element: '#toolset6', text: 'Toolset'},
+        {element: '#parenteses21', text: '('},
+        {element: '#currentSkills', text: 'currentSkills'},
+        {element: '#parenteses22', text: ')'},
+        {element: '#pontovirgula6', text: ';'},
+        {element: '#toolsetFinal', text: 'toolset'},
+        {element: '#ponto5', text: '.'},
+        {element: '#display2', text: 'display()'},
+        {element: '#pontovirgula7', text: ';'},
       ]
 
       for(let i = 0; i < arrayOfElements.length; i++) {
         await this.typeCode( arrayOfElements[i].element, arrayOfElements[i].text);
 
-        if(i % 3 === 0) {
-          await this.sleepNow(delay)
+        if(i % 4 === 0) {
+          await this.sleepNow(delay);
         }
       }
+
+      await this.sleepNow(delay);
+      this.codeEnd = true;
+      await this.typeCode('.lastp', 'PS C:\\Users\\tiagoCosta\\Desktop\\Trabalhos\\portefolio>')
     }
   },
 });
@@ -972,10 +1042,7 @@ section {
 .about {
   position: relative;
   display: flex;
-  background-color: $darkBlue;
-  padding-left: 0;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding: 0;
 
   .card {
     position: relative;
@@ -1161,27 +1228,196 @@ section {
   }
 
   .toolset {
+    background-color: $editorBlue;
+    border-left: 1px solid black;
 
-    h1 {
+
+
+    .code-blue {
+      color: #5ca9ec;
+    }
+
+    .code-yellow {
+      color: #f1d954;
+    }
+
+    .code-orange {
+      color: #fa865c;
+    }
+
+    .code-purple {
+      color: #d270eb;
+    }
+
+    .code-red {
+       color: #fb635b;
+    }
+
+    .code-green {
+      color: #74eb70;
+    }
+
+    .toolCode,
+    .terminal .toolCode {
       margin-left: 40px;
-      margin-top: 35px;
+      font-size: 16px;
       font-family: monospace;
       font-weight:  300;
       color: $whiteBlue;
     }
 
-    h2 {
-      margin-left: 40px;
-      margin-bottom: 30px;
+    .title {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: white;
+      opacity: 0.5;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-weight: 300;
       font-family: monospace;
-      font-weight:  300;
-      color: $whiteBlue;
+      justify-content: center;
+    }
+
+    .file {
+      width: 100%;
+      font-size: 16px;
+      font-weight: 300;
+      font-family: monospace;
+      margin-bottom: 5px;
+      color: white;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: darken($color: $editorBlue, $amount: 5%);
+
+      span {
+        font-size: 16px;
+        font-weight: 300;
+        height: 100%;
+        padding: 10px;
+        color: white;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: $editorBlue;
+        border-right: 1px solid black;
+
+        &:hover {
+          filter: brightness(90%);
+        }
+      }
+
+      .fa-times {
+        margin-left: 10px;
+        margin-top: 2px;
+        opacity: 0.4;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:active {
+          font-size: 14px;
+        }
+
+      }
+    }
+
+    h2 {
+      width: 800px;
+      font-size: 14px;
+      font-weight: 300;
+      padding-left: 10px;
+      opacity: 0.7;
+      color: white;
+
+      .fa-chevron-right {
+        margin: 0px 5px 0px 5px;
+      }
+    }
+
+    .editor {
+      display: flex;
+      padding-top: 10px;
+
+      .lineNumbers {
+        min-width: 10%;
+
+        li {
+          color: white;
+          opacity: 0.5;
+          font-weight: 100;
+          font-size: 16px;
+          padding-left: 10px;
+          margin: 5px 0 5px 0;
+          font-family: monospace;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .finalCode {
+        min-width: 90%;
+        padding-top: 5px;
+        margin-top: -10px;
+
+        p {
+          color: white;
+          font-size: 16px;
+          margin: 5px 0 5px 0;
+
+          &:first-child {
+            margin-top: 5px;
+            margin-bottom: 28px;
+
+          }
+        }
+
+        .emptyP {
+          margin: 0;
+        }
+      }
+    }
+
+    .terminal {
+      margin-top: 30px;
+      color: #ffffff77;
+      font-family: monospace;
+      font-size: 16px;
+
+    .terminalOptions {
+      text-transform: uppercase;
+      padding: 15px 10px 10px 20px;
+      opacity: 0;
+    }
+
+    .lastp {
+      margin-top: 30px;
+      margin-left: 20px;
+    }
+
+      span {
+        border-bottom: 1px solid $whiteBlue;
+        color: $whiteBlue;
+        padding: 5px 0px;
+      }
+    }
+
+    .terminalOn {
+       border-top: 1px solid #ffffff77;
+
+       .terminalOnOptions {
+         opacity: 1;
+       }
     }
 
     ul {
       display: flex;
       flex-wrap: wrap;
-
+      margin-top: 30px;
       li {
         margin-top: 30px;
         display: flex;
