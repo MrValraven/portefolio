@@ -1,7 +1,7 @@
 <template>
 
-  <header class="header">
-    <nav id="nav">
+  <header>
+    <nav>
       <div class="logo">
               <router-link class="logoName" to="/">
                   <img src="../assets/logo.png" alt="">
@@ -36,7 +36,7 @@ export default defineComponent({
 
 $darkBlue: #274C77;
 
-.header {
+header {
   position: absolute;
 	z-index: 10;
 	width: 100%;
@@ -44,7 +44,7 @@ $darkBlue: #274C77;
 	color: #fff;
 	padding: 20px 100px 0;
 
-  #nav {
+  nav {
     display: flex;
     justify-content: space-between;
     .logo {

@@ -9,10 +9,10 @@
           <h1
           class="chars" 
           >
-            <span id="name" class="firstName">
+            <span id="firstName" class="name">
               <span class="char" v-for="(char, index) in chars" :key="char.id" :data-index="index">{{ char.text }}</span>
             </span> 
-            <span id="name" class="lastName">
+            <span id="lastName" class="name">
               <span class="char" v-for="(char, index) in chars2" :key="char.id" :data-index="index">{{ char.text }}</span>
             </span>
           </h1>
@@ -120,35 +120,149 @@
               <div class="editor">
 
                 <div class="lineNumbers">
-                  <p>121</p>
-                  <p>122</p>
-                  <p>123</p>
-                  <p>124</p>
-                  <p>125</p>
-                  <p>127</p>
-                  <p>128</p>
-                  <p>129</p>
-                  <p>130</p>
-                  <p>131</p>
-                  <p>132</p>
-                  <p>133</p>
+                  <p v-for="number in lineNumbers" :key="number">{{ number }}</p>
                 </div>
                 <div class="code">
                   <p>&nbsp;</p>
-                  <p><span class="code-purple const"> </span><span id="me" class="code-red"></span ><span id="igual1"></span><span id="parenteses1" class="code-purple"></span></p>
-                  <p><span id="nome" class="code-red"></span><span id="doisPontos1"></span> <span id="Tiago" class="code-green"></span><span id="virgula1"></span></p>
-                  <p><span id="age" class="code-red"></span><span id="doisPontos2"></span> <span id="idade" class="code-orange"></span><span id="virgula2"></span></p>
-                  <p><span id="role" class="code-red"></span><span id="doisPontos3"></span> <span id="fullstack" class="code-green"></span><span id="virgula3"></span></p>
-                  <p><span id="git" class="code-red"></span><span id="doisPontos4"></span> <span class="code-green"><a href="https://github.com/MrValraven" target="_blank" id="githubLink" class="code-green"></a></span><span id="virgula4"></span></p>
-                  <p><span id="IDE" class="code-red"></span><span id="doisPontos5"></span> <span id="vscode" class="code-green"></span></p>
+                  <p>
+                    <span class="code-purple const"></span>
+                    <span id="me" class="code-red"></span >
+                    <span id="igual1"></span>
+                    <span id="chavetas1" class="code-purple"></span>
+                  </p>
+                  <p>
+                    <span id="nome" class="code-red"></span>
+                    <span id="doisPontos1"></span>
+                    <span id="Tiago" class="code-green"></span>
+                    <span id="virgula1"></span>
+                  </p>
+                  <p>
+                    <span id="age" class="code-red"></span>
+                    <span id="doisPontos2"></span>
+                    <span id="idade" class="code-orange"></span>
+                    <span id="virgula2"></span>
+                  </p>
+                  <p>
+                    <span id="role" class="code-red"></span>
+                    <span id="doisPontos3"></span>
+                    <span id="fullstack" class="code-green"></span>
+                    <span id="virgula3"></span>
+                  </p>
+                  <p>
+                    <span id="git" class="code-red"></span>
+                    <span id="doisPontos4"></span>
+                    <span class="code-green"><a href="https://github.com/MrValraven" target="_blank" id="githubLink" class="code-green"></a></span>
+                    <span id="virgula4"></span>
+                  </p>
+                  <p>
+                    <span id="IDE" class="code-red"></span>
+                    <span id="doisPontos5"></span>
+                    <span id="vscode" class="code-green"></span>
+                  </p>
+                  <p>
+                    <span id="chavetas2" class="code-purple"></span>
+                  </p>
                   <p>&nbsp;</p>
-                  <p><span id="parenteses2" class="code-purple"></span></p>
+                  <p>
+                    <span id="class" class="code-purple"></span>
+                    <span id="toolset" class="code-yellow"></span>
+                    <span id="chavetas3" class="code-purple"></span>
+                  </p>
+                  <p>
+                    <span id="skills" class="code-red"></span>
+                    <span id="doisPontos6"></span>
+                    <span id="chavetas4" class="code-purple"></span>
+                    <span id="icon1" class="code-red"></span>
+                    <span id="doisPontos7"></span>
+                    <span id="string1" class="code-yellow"></span>
+                    <span id="virgula4"></span>
+                    <span id="name2" class="code-red"></span>
+                    <span id="doisPontos8"></span>
+                    <span id="string2" class="code-yellow"></span>
+                    <span id="chavetas5" class="code-purple"></span>
+                    <span id="array1" class="code-purple"></span>
+                    <span id="array2" class="code-purple"></span>
+                    <span id="pontovirgula1"></span>
+                  </p>
+                  <p>&nbsp;</p>
+                  <p>
+                    <span id="constructor" class="code-yellow"></span>
+                    <span id="parenteses1" class="code-purple"></span>
+                    <span id="skillset" class="code-red"></span>
+                    <span id="doisPontos9" class="code-red"></span>
+                    <span id="chavetas6" class="code-purple"></span>
+                    <span id="icon2" class="code-red"></span>
+                    <span id="doisPontos10"></span>
+                    <span id="string3" class="code-yellow"></span>
+                    <span id="virgula5"></span>
+                    <span id="name3" class="code-red"></span>
+                    <span id="doisPontos11"></span>
+                    <span id="string4" class="code-yellow"></span>
+                    <span id="chavetas7" class="code-purple"></span>
+                    <span id="array3" class="code-purple"></span>
+                    <span id="array4" class="code-purple"></span>
+                    <span id="parenteses2" class="code-purple"></span>
+                    <span id="chavetas8" class="code-purple"></span>
+                  </p>
+                  <p>
+                    <span id="this1" class="code-yellow"></span>
+                    <span id="ponto1"></span>
+                    <span id="skills2" class="code-red"></span>
+                    <span id="ponto2"></span>
+                    <span id="push" class="code-blue"></span>
+                    <span id="parenteses3" class="code-blue"></span>
+                    <span id="reticencias"></span>
+                    <span id="skillset2" class="code-red"></span>
+                    <span id="parenteses4" class="code-blue"></span>
+                    <span id="pontovirgula2"></span>
+                  </p>
+                  <p><span id="chavetas9" class="code-purple"></span></p>
+                  <p>&nbsp;</p>
+                  <p>
+                    <span id="display" class="code-blue"></span>
+                    <span id="parenteses5" class="code-blue"></span>
+                    <span id="parenteses6" class="code-blue"></span> 
+                    <span id="chavetas10" class="code-purple"></span>
+                  </p>
+                  <p>
+                    <span id="for" class="code-blue"></span>
+                    <span id="parenteses7" class="code-blue"></span>
+                    <span id="let" class="code-purple"></span>
+                    <span id="skill1" class="code-red"></span>
+                    <span id="in" class="code-purple"></span>
+                    <span id="this2" class="code-yellow"></span>
+                    <span id="ponto3"></span>
+                    <span id="skills3" class="code-red"></span>
+                    <span id="parenteses8" class="code-blue"></span>
+                    <span id="chavetas11" class="code-blue"></span>
+                  </p>
+                  <p>
+                    <span id="console" class="code-yellow"></span>
+                    <span id="ponto4"></span>
+                    <span id="log" class="code-blue"></span>
+                    <span id="parenteses9" class="code-blue"></span>
+                    <span id="skill2" class="code-red"></span>
+                    <span id="parenteses20" class="code-blue"></span>
+                    <span id="pontovirgula3"></span>
+                  </p>
+                  <p><span id="chavetas12" class="code-blue"></span></p>
+                  <p><span id="chavetas13" class="code-purple"></span></p>
+                  <p><span id="chavetas14" class="code-yellow"></span></p>
+                  <p>&nbsp;</p>
+                  <p>
+                    <span id="export" class="code-purple"></span>
+                    <span id="chavetas15" class="code-yellow"></span>
+                    <span id="toolset2" class="code-yellow"></span>
+                    <span id="chavetas16" class="code-yellow"></span>
+                    <span id="pontovirgula4"></span>
+                    </p>
                 </div>
               </div>
           </div>
         </div>
         <div class="toolset">
-          <h1>My toolset</h1>
+          <h1>import { toolset } from 'Home.vue';</h1>
+          <h2>toolset.display();</h2>
           <ul>
             <li>
               <svg id="html" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path d="M21.963,11.481l-9.457-0.008l0.224,2.531l9.006,0.007l-0.684,7.587l-5.066,1.4L15.981,23l-5.061-1.409l-0.351-3.968l2.481,0.002l0.182,2.059l2.752,0.746l0.003-0.001v0l2.756-0.741l0.289-3.205l-3.042-0.002l-5.523-0.004L9.807,9l6.19,0.005l6.19,0.005L21.963,11.481z"/><path fill="none" stroke="#ffffff" stroke-miterlimit="10" stroke-width="2" d="M6.309,5l1.749,19.795L15.977,27l7.93-2.191l1.783-19.793L6.309,5z"/></svg>
@@ -272,7 +386,8 @@ export default defineComponent({
       isOnExpo: false,
       opacityTeto: 0,
       opacityExpo: 0,
-      distance: 700,
+      activateTyping: true,
+      lineNumbers: [121],
       image: 'https://i.pinimg.com/originals/e3/66/87/e366871039caf5afd17b0bcfecb453cb.jpg',
     }
   },
@@ -286,6 +401,9 @@ export default defineComponent({
     window.addEventListener('scroll', this.handleScroll);
     this.handleResize();
     window.addEventListener('resize', this.handleResize);
+    for(let i: number = 122; i < 146; i++) {
+      this.lineNumbers.push(i);
+    }
   },
   unmounted() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -323,9 +441,9 @@ export default defineComponent({
       let aboutMeHeight = document.querySelector('.aboutMe')?.getBoundingClientRect().top;
       aboutMeHeight = Number(aboutMeHeight);
 
-      if(aboutMeHeight < this.distance) {
+      if(aboutMeHeight < 650 && this.activateTyping) {
         this.typeAllCode();
-        this.distance = -1000000;
+        this.activateTyping = false;
       }
     },
     handleResize () {
@@ -347,7 +465,7 @@ export default defineComponent({
       let letter = "";
 
       while(index <= maxIndex) {
-        await this.sleepNow(40);
+        await this.sleepNow(30);
         letter = word.slice(0, index);
         selectedElement.textContent = letter;
         index++;
@@ -356,33 +474,108 @@ export default defineComponent({
 
     async typeAllCode() {
 
-      let delay = 400;
+      let delay = 200;
 
       let arrayOfElements = [
         {element: '.const', text: 'const'},
         {element: '#me', text: ' me'},
         {element: '#igual1', text: ' = '},
-        {element: '#parenteses1', text: '{'},
+        {element: '#chavetas1', text: '{'},
         {element: '#nome', text: 'name'},
-        {element: '#doisPontos1', text: ':'},
+        {element: '#doisPontos1', text: ': '},
         {element: '#Tiago', text: '"Tiago"'},
         {element: '#virgula1', text: ','},
         {element: '#age', text: 'age'},
-        {element: '#doisPontos2', text: ':'},
+        {element: '#doisPontos2', text: ': '},
         {element: '#idade', text: '22'},
         {element: '#virgula2', text: ','},
         {element: '#role', text: 'role'},
-        {element: '#doisPontos3', text: ':'},
+        {element: '#doisPontos3', text: ': '},
         {element: '#fullstack', text: '"Fullstack Developer"'},
         {element: '#virgula3', text: ','},
         {element: '#git', text: 'github'},
-        {element: '#doisPontos4', text: ':'},
+        {element: '#doisPontos4', text: ': '},
         {element: '#githubLink', text: '"https://github.com/MrValraven"'},
         {element: '#virgula4', text: ','},
         {element: '#IDE', text: 'IDE'},
-        {element: '#doisPontos5', text: ':'},
+        {element: '#doisPontos5', text: ': '},
         {element: '#vscode', text: '"Visual Studio Code"'},
-        {element: '#parenteses2', text: '}'},
+        {element: '#chavetas2', text: '}'},
+        {element: '#class', text: 'class'},
+        {element: '#toolset', text: ' Toolset'},
+        {element: '#chavetas3', text: ' }'},
+        {element: '#skills', text: 'skills'},
+        {element: '#doisPontos6', text: ': '},
+        {element: '#chavetas4', text: ' {'},
+        {element: '#icon1', text: ' icon'},
+        {element: '#doisPontos7', text: ': '},
+        {element: '#string1', text: 'string'},
+        {element: '#virgula4', text: ','},
+        {element: '#name2', text: ' name'},
+        {element: '#doisPontos8', text: ': '},
+        {element: '#string2', text: 'string'},
+        {element: '#chavetas5', text: ' }'},
+        {element: '#array1', text: '['},
+        {element: '#array2', text: ']'},
+        {element: '#pontovirgula1', text: ';'},
+        {element: '#constructor', text: 'constructor'},
+        {element: '#parenteses1', text: '('},
+        {element: '#skillset', text: 'skillset'},
+        {element: '#doisPontos9', text: ':'},
+        {element: '#chavetas6', text: ' {'},
+        {element: '#icon2', text: ' icon'},
+        {element: '#doisPontos10', text: ': '},
+        {element: '#string3', text: 'string'},
+        {element: '#virgula5', text: ','},
+        {element: '#name3', text: ' name'},
+        {element: '#doisPontos11', text: ': '},
+        {element: '#string4', text: 'string'},
+        {element: '#chavetas7', text: ' }'},
+        {element: '#array3', text: '['},
+        {element: '#array4', text: ']'},
+        {element: '#parenteses2', text: ')'},
+        {element: '#chavetas8', text: ' {'},
+        {element: '#this1', text: ' this'},
+        {element: '#ponto1', text: '.'},
+        {element: '#skills2', text: 'skills'},
+        {element: '#ponto2', text: '.'},
+        {element: '#push', text: 'push'},
+        {element: '#parenteses3', text: '('},
+        {element: '#reticencias', text: '...'},
+        {element: '#skillset2', text: 'skillset'},
+        {element: '#parenteses4', text: ')'},
+        {element: '#pontovirgula2', text: ';'},
+        {element: '#chavetas9', text: ' {'},
+        {element: '#display', text: 'display'},
+        {element: '#parenteses5', text: '('},
+        {element: '#parenteses6', text: ')'},
+        {element: '#chavetas10', text: ' {'},
+        {element: '#for', text: 'for'},
+        {element: '#parenteses7', text: '('},
+        {element: '#let', text: 'let '},
+        {element: '#skill1', text: 'skill '},
+        {element: '#in', text: 'in '},
+        {element: '#this2', text: 'this'},
+        {element: '#ponto3', text: '.'},
+        {element: '#skills3', text: 'skills'},
+        {element: '#parenteses8', text: ')'},
+        {element: '#chavetas11', text: ' {'},
+        {element: '#console', text: 'console'},
+        {element: '#ponto4', text: '.'},
+        {element: '#log', text: 'log'},
+        {element: '#parenteses9', text: '('},
+        {element: '#skill2', text: 'skill'},
+        {element: '#parenteses20', text: ')'},
+        {element: '#pontovirgula3', text: ';'},
+        {element: '#chavetas12', text: '}'},
+        {element: '#chavetas13', text: '}'},
+        {element: '#chavetas14', text: '}'},
+        {element: '#export', text: 'export '},
+        {element: '#chavetas15', text: '{'},
+        {element: '#toolset2', text: ' Toolset '},
+        {element: '#chavetas16', text: '}'},
+        {element: '#pontovirgula4', text: ';'},
+        
       ]
 
       for(let i = 0; i < arrayOfElements.length; i++) {
@@ -496,13 +689,13 @@ section {
       padding-left: 20px;
       overflow: hidden;
 
-      #name {
+      .name {
         display: block;
         transform: translate3d(0, -400px, 0);
         animation: showTopText 1s 0.3s forwards;
       }
 
-      .firstName {
+      #firstName {
         margin-right: 20px;
       }
 
@@ -780,11 +973,14 @@ section {
   position: relative;
   display: flex;
   background-color: $darkBlue;
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 
   .card {
     position: relative;
-    width: 700px;
-    height: 600px;
+    width: 100%;
+    height: 700px;
     margin: 0px 20px 0 0;
     display: flex;
     justify-content: flex-start;
@@ -792,14 +988,17 @@ section {
     flex-direction: column;
     background: $editorBlue;
     font-family: monospace;
-    border-radius: 12px 12px 0 0;
+    
     overflow: hidden;
 
     .title {
+      display: flex;
+      align-items: center;
       font-size: 14px;
       color: white;
       opacity: 0.5;
-      padding-top: 5px;
+      padding-top: 10px;
+      padding-bottom: 10px;
       font-weight: 300;
     }
 
@@ -898,11 +1097,43 @@ section {
 
         &:first-child {
           margin-top: 0;
+
         }
+
+
+        #class,
+        #export,
+        #chavetas14 {
+          margin-left: -40px;
+        }
+
+        #this1,
+        #for,
+        #chavetas12 {
+          margin-left: 40px;
+        }
+
+        #console {
+          margin-left: 80px;
+        }
+
 
         #githubLink {
           opacity: 1;
           text-decoration: underline;
+        }
+
+        #reticencias,
+        #skillset2 {
+          font-style: italic;
+        }
+
+        .code-blue {
+          color: #5ca9ec;
+        }
+
+        .code-yellow {
+          color: #f1d954;
         }
 
         .code-orange {
@@ -913,12 +1144,13 @@ section {
           color: #d270eb;
         }
 
-        .const {
+        .const,
+        #chavetas2 {
           margin-left: -40px;
         }
 
         .code-red {
-          color: #f80318;
+          color: #fb635b;
         }
 
         .code-green {
@@ -928,56 +1160,71 @@ section {
     }
   }
 
-  .toolset h1 {
-    color: $whiteBlue;
-  }
-     
-  .toolset ul {
-    display: flex;
-    flex-wrap: wrap;
+  .toolset {
 
-    li {
-      margin-top: 30px;
+    h1 {
+      margin-left: 40px;
+      margin-top: 35px;
+      font-family: monospace;
+      font-weight:  300;
+      color: $whiteBlue;
+    }
+
+    h2 {
+      margin-left: 40px;
+      margin-bottom: 30px;
+      font-family: monospace;
+      font-weight:  300;
+      color: $whiteBlue;
+    }
+
+    ul {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      width: 100px;
-      padding: 15px 10px 15px 10px;
-      margin: 0 10px 25px 10px;
-      color:  $whiteBlue;
-      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      flex-wrap: wrap;
 
-      svg {
-        fill: $whiteBlue;
-        width: 50px;
-        height: 50px;
-      }
+      li {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100px;
+        padding: 15px 10px 15px 10px;
+        margin: 0 10px 25px 10px;
+        color:  $whiteBlue;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-      i {
-        font-size: 50px;
-        margin-right: 0;
-      }
+        svg {
+          fill: $whiteBlue;
+          width: 50px;
+          height: 50px;
+        }
 
-      p {
-        opacity: 0;
-        transform: translateY(5px);
-        transition: opacity 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-      }
-
-      &:hover {
-        
+        i {
+          font-size: 50px;
+          margin-right: 0;
+        }
 
         p {
-          opacity: 1;
-          transform: translateY(-1px);
+          opacity: 0;
+          transform: translateY(5px);
+          transition: opacity 0.2s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        &:hover {
+          
+
+          p {
+            opacity: 1;
+            transform: translateY(-1px);
+          }
         }
       }
-    }
-    
-    i {
-      font-size: 60px;
-      margin-right: 30px;
+      
+      i {
+        font-size: 60px;
+        margin-right: 30px;
+      }
     }
   }
 }
