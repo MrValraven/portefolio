@@ -98,7 +98,13 @@
         <div class="aboutMe">
           <div class="card">
             <h1 class="title">Home.vue - portefolio - Visual Studio Code</h1>
-            <h1 class="file"><span>Home.vue <i class="fas fa-times"></i></span></h1>
+            <h1 class="file">
+              <span>
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="20px" height="20px"><polygon fill="#81c784" points="23.987,17 18.734,8 2.974,8 23.987,44 45,8 29.24,8"/><polygon fill="#455a64" points="29.24,8 23.987,17 18.734,8 11.146,8 23.987,30 36.828,8"/></svg>
+                Home.vue 
+                <i class="fas fa-times"></i>
+                </span>
+              </h1>
             <h2>src
               <i class="fas fa-chevron-right"></i> 
               views
@@ -263,7 +269,13 @@
         <div class="toolset">
 
           <h1 class="title">main.ts - portefolio - Visual Studio Code</h1>
-          <h1 class="file"><span>main.ts <i class="fas fa-times"></i></span></h1>
+          <h1 class="file">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="20px" height="20px"><rect width="36" height="36" x="6" y="6" fill="#1976d2"/><polygon fill="#fff" points="27.49,22 14.227,22 14.227,25.264 18.984,25.264 18.984,40 22.753,40 22.753,25.264 27.49,25.264"/><path fill="#fff" d="M39.194,26.084c0,0-1.787-1.192-3.807-1.192s-2.747,0.96-2.747,1.986 c0,2.648,7.381,2.383,7.381,7.712c0,8.209-11.254,4.568-11.254,4.568V35.22c0,0,2.152,1.622,4.733,1.622s2.483-1.688,2.483-1.92 c0-2.449-7.315-2.449-7.315-7.878c0-7.381,10.658-4.469,10.658-4.469L39.194,26.084z"/></svg>
+              main.ts 
+              <i class="fas fa-times"></i>
+              </span>
+            </h1>
           <h2>src <i class="fas fa-chevron-right"></i> main.ts</h2>
 
           <div class="editor">
@@ -706,6 +718,7 @@ $lightBlue: #A3CEF1;
 $editorBlue: #21313c;
 $easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
 $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
+$delay: 0.5s;
 
 section {
   padding: 100px 100px 0px 100px;
@@ -1106,6 +1119,10 @@ section {
         &:hover {
           filter: brightness(90%);
         }
+
+        svg {
+          margin-right: 8px;
+        }
       }
 
       .fa-times {
@@ -1317,6 +1334,10 @@ section {
         &:hover {
           filter: brightness(90%);
         }
+
+        svg {
+          margin-right: 8px;
+        }
       }
 
       .fa-times {
@@ -1374,6 +1395,7 @@ section {
         min-width: 90%;
         padding-top: 5px;
         margin-top: -10px;
+        margin-left: -40px;
 
         p {
           color: white;
@@ -1408,6 +1430,7 @@ section {
     .lastp {
       margin-top: 30px;
       margin-left: 20px;
+      opacity: 0.8;
     }
 
       span {
@@ -1445,11 +1468,13 @@ section {
           fill: $whiteBlue;
           width: 50px;
           height: 50px;
+          opacity: 0.8;
         }
 
         i {
           font-size: 50px;
           margin-right: 0;
+          opacity: 0.8;
         }
 
         p {
@@ -1465,6 +1490,14 @@ section {
             opacity: 1;
             transform: translateY(-1px);
           }
+
+          svg {
+            opacity: 1;
+          }
+
+          i {
+            opacity: 1;
+          }
         }
       }
       
@@ -1474,31 +1507,31 @@ section {
       }
 
       .html {
-        animation: scaleUp 1s 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: scaleUp $delay 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
       }
       .css {
-        animation: scaleUp 1s 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: scaleUp $delay 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
       }
       .sass {
-        animation: scaleUp 1s 2.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: scaleUp $delay 2.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
       }
       .js {
-        animation: scaleUp 1s 3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: scaleUp $delay 3s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
       }
       .ts {
-        animation: scaleUp 1s 3.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: scaleUp $delay 3.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
       }
       .vue {
-        animation: scaleUp 1s 4s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: scaleUp $delay 4s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
       }
       .node {
-        animation: scaleUp 1s 4.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: scaleUp $delay 4.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
       }
       .npm {
-        animation: scaleUp 1s 5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: scaleUp $delay 5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
       }
       .yarn {
-        animation: scaleUp 1s 5.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation: scaleUp $delay 5.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
       }
       .gitalt {
         animation: scaleUp 1s 6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
