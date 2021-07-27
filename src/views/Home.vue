@@ -370,21 +370,63 @@
         </div>
         
       </section>
-      <section class="estrutura" v-if="finished">
-        <h1>Hero</h1>
-        <h1>work</h1>
-        <h1>Skills</h1>
-        <h1>But who's this guy?</h1>
-        <h1>Contact me</h1>
+      <section id="build">
+        <h1>This website was built with:</h1>
+        <div class="builtWith">
+          <ul>
+            <h2>• Tech</h2>
+            <li>601 lines of HTML</li>
+            <li>1007 lines of SCSS</li>
+            <li>354 lines of JS</li>
+            <li>58 hours of work</li>
+            <li>47 vegan chocolate cookies</li>
+            <li>14 SVGs</li>
+          </ul>
+          <ul class="music">
+            <h2>• Music</h2>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/3MATPJ9tYbcMhw5VOZrRU6?si=RDo3zv7hSxKVNnuAvwspHQ&dl_branch=1">Summer Salt</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/7wbkl3zgDZEoZer357mVIw?si=Cm5BTNqzRbGlgq0XdUa_ZQ&dl_branch=1">Boy Pablo</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/3BR3Qfra04DICDUB2BL3eu?si=KGtSyrWOSwKLXpcy-Z65EQ&dl_branch=1">Men on the couch</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/5p0zkKpBuRguKebwRe0RI2?si=bMgvegk3R6G10ZP6f7kvGg&dl_branch=1">Pierce Fulton</a></li>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/2SdOKxC1sSxEyv8JYERaNe?si=khNCyTwzRwmGyZXaXDWdqA&dl_branch=1">RuPaul</a></li>
+          </ul>
+        </div>
+       
+      </section>
+      <section class="contacts">
+        <h1>Let's create cool things together</h1>
+        <h3>Stay creative and have a stunning {{ weekDayOfToday }}!</h3>
+        <div class="content">
+          <div class="cta">
+            <video autoplay="true" muted="true" loop="true" width="500">
+              <source src="@/assets/brofist.mp4"
+                      type="video/mp4" />
+            </video>
+          </div>
+          <form @submit.prevent>
+            <label for="contactName">Name</label>
+            <input type="text" v-model="contactName" required>
+            <label for="contactEmail">Email</label>
+            <input type="text" v-model="contactEmail" required>
+            <label for="contactMessage">Message</label>
+            <textarea type="text" v-model="contactMessage"  required/>
+            <Button buttonText="Send message"/>
+          </form>
+          <div class="socials">
+              <a  href="https://github.com/MrValraven" target="_blank">
+                <i id="github" class="fab fa-github"></i>
+                <p>@MrValraven</p>
+              </a>
+              <a  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank">
+                <i id="linkedin" class="fab fa-linkedin"></i>
+                <p>Tiago Costa</p>
+              </a>
+          </div>
+        </div>
       </section>
       <section class="frases" v-if="finished">
         <h1>It's important to think outside of the box</h1>
         <h1>show personality</h1>
-      </section>
-      <section class="funthings" v-if="finished">
-        <div>
-          <h1>About me</h1>
-        </div>
       </section>
     </div>
   
@@ -448,6 +490,10 @@ export default defineComponent({
       codeEnd: false,
       lineNumbers: [121],
       image: 'https://i.pinimg.com/originals/e3/66/87/e366871039caf5afd17b0bcfecb453cb.jpg',
+      contactName: "",
+      contactEmail: "",
+      contactMessage: "",
+      weekDayOfToday: "",
     }
   },
   components: {
@@ -463,6 +509,18 @@ export default defineComponent({
     for(let i: number = 122; i < 146; i++) {
       this.lineNumbers.push(i);
     }
+
+    let day = new Date();
+    let weekday = new Array(7);
+    weekday[0] = "Sunday";
+    weekday[1] = "Monday";
+    weekday[2] = "Tuesday";
+    weekday[3] = "Wednesday";
+    weekday[4] = "Thursday";
+    weekday[5] = "Friday";
+    weekday[6] = "Saturday";
+
+    this.weekDayOfToday = weekday[day.getDay()];
   },
   unmounted() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -716,9 +774,11 @@ $darkBlue: #274C77;
 $normalBlue: #6aa7cf;
 $lightBlue: #A3CEF1;
 $editorBlue: #21313c;
+$gostoDesteAzul: #aedbf7;
 $easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
 $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
 $delay: 0.5s;
+$h1Size: 70px;
 
 section {
   padding: 100px 100px 0px 100px;
@@ -853,6 +913,7 @@ section {
 }
 
 @media (max-width: 1450px) {
+
   .hero .heroText h1 {
     flex-direction: column;
     padding-right: 0;
@@ -925,7 +986,7 @@ section {
     
     h2 {
       display: inline-flex;
-      font-size: 70px;
+      font-size: $h1Size;
       font-weight: 500;
       margin-left: -5px;
       line-height: 60px;
@@ -1036,6 +1097,8 @@ section {
 
 @media (max-width: 1680px) {
 
+  $h1Size: 60px;
+
   section {
     padding: 60px;
   }
@@ -1049,7 +1112,7 @@ section {
     .cardtext {
 
       h2 {
-        font-size: 60px;
+        font-size: $h1Size;
       }
 
       p {
@@ -1066,7 +1129,9 @@ section {
 .about {
   position: relative;
   display: flex;
+  background: $editorBlue;
   padding: 0;
+  padding-bottom: 10px;
 
   .card {
     position: relative;
@@ -1079,6 +1144,7 @@ section {
     flex-direction: column;
     background: $editorBlue;
     font-family: monospace;
+    padding-bottom: 20px;
     
     overflow: hidden;
 
@@ -1573,23 +1639,114 @@ section {
 
 }
 
-.funthings {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+#build {
 
-  &:hover > div{
-    padding: 100px;
-    border-radius: 0;
+  h1 {
+    font-size: $h1Size;
+    font-weight: 500;
   }
 
-  div {
-    padding: 100px;
-    border-radius: 50%;
-    border: 2px solid red;
-    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  .builtWith {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+
+    
+
   }
 }
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 100px;
+
+  .content {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+    h1 {
+      font-size: $h1Size;
+      font-weight: 500;
+    }
+
+    h3 {
+      margin-top: -20px;
+      margin-left: 5px;
+      margin-bottom: 10px;
+    }
+
+    .cta {
+      
+    }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 50px;
+    width: 600px;
+
+    label {
+      color: $darkBlue;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+    }
+
+    textarea {
+      resize: none;
+      width: 500px;
+      height: 100px;
+      padding: 10px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+    }
+  }
+
+  .socials {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    height: 380px;
+    margin-left: 50px;
+
+    a {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      opacity: 1;
+      transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      i {
+        font-size: 40px;
+        padding: 5px;
+        color: $darkBlue;
+      }
+
+      #github {
+        padding-left: 2px;
+      }
+    }
+  }
+}
+
 </style>
