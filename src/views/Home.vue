@@ -371,7 +371,9 @@
         
       </section>
       <section id="build">
-        <h1>This website was built with:</h1>
+        <h2 class="comments">/**</h2>
+        <h1 class="comments">* Made with</h1>
+        <h2 class="comments">**/</h2>
         <div class="builtWith">
           <ul>
             <h2>• Tech</h2>
@@ -398,7 +400,7 @@
         <h3>Stay creative and have a stunning {{ weekDayOfToday }}!</h3>
         <div class="content">
           <div class="cta">
-            <video autoplay="true" muted="true" loop="true" width="500">
+            <video id="video" autoplay="true" muted="true" loop="true" width="510">
               <source src="@/assets/brofist.mp4"
                       type="video/mp4" />
             </video>
@@ -420,6 +422,10 @@
               <a  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank">
                 <i id="linkedin" class="fab fa-linkedin"></i>
                 <p>Tiago Costa</p>
+              </a>
+              <a  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank">
+                <i id="discord" class="fab fa-discord"></i>
+                <p>Valraven#7264</p>
               </a>
           </div>
         </div>
@@ -1133,6 +1139,10 @@ section {
   padding: 0;
   padding-bottom: 10px;
 
+  .aboutMe {
+    width: 50%;
+  }
+
   .card {
     position: relative;
     width: 100%;
@@ -1324,6 +1334,7 @@ section {
   .toolset {
     background-color: $editorBlue;
     border-left: 1px solid black;
+    width: 50%;
 
 
 
@@ -1641,9 +1652,20 @@ section {
 
 #build {
 
+
+
   h1 {
     font-size: $h1Size;
     font-weight: 500;
+  }
+
+  .comments {
+    color: grey;
+    font-size: 30px;
+
+    &:first-child {
+      margin-left: -15px;
+    }
   }
 
   .builtWith {
@@ -1734,12 +1756,17 @@ section {
 
       &:hover {
         transform: translateY(-2px);
+
+        i {
+          color: darken($color: $normalBlue, $amount: 15%);
+        }
       }
 
       i {
         font-size: 40px;
         padding: 5px;
         color: $darkBlue;
+        transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       }
 
       #github {
