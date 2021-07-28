@@ -376,21 +376,31 @@
         <h2 class="comments">**/</h2>
         <div class="builtWith">
           <ul>
-            <h2>• Tech</h2>
+            <h2><i class="fas fa-code"></i></h2>
             <li>601 lines of HTML</li>
             <li>1007 lines of SCSS</li>
             <li>354 lines of JS</li>
             <li>58 hours of work</li>
-            <li>47 vegan chocolate cookies</li>
+            <li>102 hours of thinking</li>
             <li>14 SVGs</li>
           </ul>
           <ul class="music">
-            <h2>• Music</h2>
+            <h2><i class="fas fa-music"></i></h2>
+            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/0L8ExT028jH3ddEcZwqJJ5?si=q1xvTHkkTTWSqvP52sFmmg&dl_branch=1">Red Hot Chilli Peppers</a></li>
             <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/3MATPJ9tYbcMhw5VOZrRU6?si=RDo3zv7hSxKVNnuAvwspHQ&dl_branch=1">Summer Salt</a></li>
             <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/7wbkl3zgDZEoZer357mVIw?si=Cm5BTNqzRbGlgq0XdUa_ZQ&dl_branch=1">Boy Pablo</a></li>
             <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/3BR3Qfra04DICDUB2BL3eu?si=KGtSyrWOSwKLXpcy-Z65EQ&dl_branch=1">Men on the couch</a></li>
             <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/5p0zkKpBuRguKebwRe0RI2?si=bMgvegk3R6G10ZP6f7kvGg&dl_branch=1">Pierce Fulton</a></li>
             <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/2SdOKxC1sSxEyv8JYERaNe?si=khNCyTwzRwmGyZXaXDWdqA&dl_branch=1">RuPaul</a></li>
+          </ul>
+          <ul class="food">
+            <h2><i class="fas fa-battery-three-quarters"></i></h2>
+            <li>37 gigatons of Hummus</li>
+            <li>47 vegan chocolate cookies</li>
+            <li>85 Chleb</li>
+            <li>7 pizzas</li>
+            <li>∞ fresh vegetables</li>
+            <li>1 glass of wine</li>
           </ul>
         </div>
        
@@ -400,26 +410,17 @@
         <h3>Stay creative and have a stunning {{ weekDayOfToday }}!</h3>
         <div class="content">
           <div class="cta">
-            <video id="video" autoplay="true" muted="true" loop="true" width="510">
+            <video id="video" autoplay="true" muted="true" loop="true">
               <source src="@/assets/brofist.mp4"
                       type="video/mp4" />
             </video>
           </div>
-          <form @submit.prevent>
-            <label for="contactName">Name</label>
-            <input type="text" v-model="contactName" required>
-            <label for="contactEmail">Email</label>
-            <input type="text" v-model="contactEmail" required>
-            <label for="contactMessage">Message</label>
-            <textarea type="text" v-model="contactMessage"  required/>
-            <Button buttonText="Send message"/>
-          </form>
           <div class="socials">
               <a  href="https://github.com/MrValraven" target="_blank">
                 <i id="github" class="fab fa-github"></i>
                 <p>@MrValraven</p>
               </a>
-              <a  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank">
+              <a class="linkedInA" href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank">
                 <i id="linkedin" class="fab fa-linkedin"></i>
                 <p>Tiago Costa</p>
               </a>
@@ -428,6 +429,15 @@
                 <p id="discordID">Valraven#7264</p>
               </a>
           </div>
+          <form @submit.prevent>
+            <label for="contactName">Name</label>
+            <input type="text" v-model="contactName" required>
+            <label for="contactEmail">Email</label>
+            <input type="text" v-model="contactEmail" required>
+            <label for="contactMessage">Message</label>
+            <textarea type="text" v-model="contactMessage"  required/>
+            <Button class="contactButton" buttonText="Send message"/>
+          </form>
         </div>
         <div v-if="openNotification" class="notification">
           <p>DiscordID copied sucessfully</p>
@@ -972,11 +982,11 @@ section {
 
   .mainImage {
     min-width: 55%;
-    border: 5px solid black;
     border-radius: 16px;
     margin-right: 25px;
     filter: grayscale(30%);
-    box-shadow: 0px 5px 25px 0px rgba($color: #000000, $alpha: 0.3);
+/*     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   }
 
   .projects {
@@ -1128,37 +1138,6 @@ section {
   }
 }
 
-@media (max-width: 1680px) {
-
-  $h1Size: 60px;
-
-  section {
-    padding: 60px;
-  }
-
-  .work {
-
-    .projects li #hoverImg {
-      left: 37%;
-    }
-
-    .cardtext {
-
-      h2 {
-        font-size: $h1Size;
-      }
-
-      p {
-        font-size: 24px;
-      }
-
-      h4 {
-        font-size: 20px;
-      }
-    }
-  }
-}
-
 .about {
   position: relative;
   display: flex;
@@ -1245,11 +1224,13 @@ section {
     }
 
     h2 {
-      width: 800px;
+      width: 100%;
+      padding-left: 10px;
       font-size: 14px;
       font-weight: 300;
       opacity: 0.7;
       color: white;
+      
 
       .fa-chevron-right {
         margin: 0px 5px 0px 5px;
@@ -1649,34 +1630,6 @@ section {
 }
 
 
-@media (max-width: 900px) {
-
-  .card {
-    width: auto;
-    max-width: 400px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-
-    &:hover {
-      height: 600px;
-    }
-    
-    .content {
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 40px;
-    }
-
-    &:hover > .image {
-      left: 0%;
-      height: 3350px;
-    }
-  }
-
-}
-
 #build {
 
 
@@ -1698,7 +1651,13 @@ section {
   .builtWith {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 100%;
+    margin-top: 50px;
+
+    h2 i {
+      font-size: $h1Size;
+      margin-bottom: 25px;
+    }
 
     
 
@@ -1710,33 +1669,53 @@ section {
   justify-content: center;
   flex-direction: column;
   padding-bottom: 100px;
+  width: 100%;
+  .cta {
+    width: 35%;
+  }
 
   #video {
     border-radius: 12px;
+    width: 100%;
+    background-color: white;
   }
 
   .content {
     display: flex;
     width: 100%;
     align-items: flex-start;
+    background-color: white;
+    padding: 25px 50px 50px 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 0 0 12px 12px;
+
   }
 
     h1 {
       font-size: $h1Size;
       font-weight: 500;
+      background-color: white;
+      padding-left: 50px;
+      padding-top: 25px;
+      border-radius:  12px 12px 0 0;
+      opacity: 1;
+
     }
 
     h3 {
-      margin-top: -20px;
-      margin-left: 5px;
-      margin-bottom: 10px;
+      margin-top: -10px;
+      padding-bottom: 10px;
+      background-color: white;
+      filter: grayscale(0%);
+      padding-left: 60px;
+
     }
 
   form {
     display: flex;
     flex-direction: column;
-    padding: 0px 50px;
-    width: 600px;
+    padding: 0px 0px 0 0;
+    width: 45%;
 
     label {
       color: $darkBlue;
@@ -1746,31 +1725,38 @@ section {
 
     input {
       padding: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
       border-radius: 12px;
       border: none;
       outline: none;
+      background-color: $whiteBlue;
+      color: $darkBlue;
     }
 
     textarea {
       resize: none;
-      width: 500px;
       height: 100px;
       padding: 10px;
       margin-bottom: 30px;
       border-radius: 12px;
       border: none;
       outline: none;
+      background-color: $whiteBlue;
+      color: $darkBlue;
+    }
+
+    .contactButton {
+      margin-top: 23px;
     }
   }
 
   .socials {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    width: 20%;
     height: 380px;
-    margin-left: 50px;
 
     a {
       display: flex;
@@ -1800,6 +1786,10 @@ section {
         padding-left: 2px;
       }
     }
+
+    .linkedInA {
+      margin: 30px 0 30px 0;
+    }
   }
 
   .notification {
@@ -1815,6 +1805,7 @@ section {
     background-color: $darkBlue;
     color: $whiteBlue;
     animation: slideIn 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    z-index: 999;
 
     p {
       padding: 0 5px 0 5px;
@@ -1836,6 +1827,90 @@ section {
     }
     
   }
+}
+
+@media (max-width: 1680px) {
+
+  $h1Size: 60px;
+
+  section {
+    padding: 60px;
+  }
+
+  .work {
+
+    .projects li #hoverImg {
+      left: 37%;
+    }
+
+    .cardtext {
+
+      h2 {
+        font-size: $h1Size;
+      }
+
+      p {
+        font-size: 24px;
+      }
+
+      h4 {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .contacts {
+
+    .cta {
+      width: 40%;
+    }
+
+    .socials {
+      justify-content: space-evenly;
+    }
+
+    form {
+
+      input {
+        margin-bottom: 15px;
+      }
+
+      .contactButton {
+        margin-top: 0px;
+      }
+    }
+
+    
+  }
+
+}
+
+@media (max-width: 900px) {
+
+  .card {
+    width: auto;
+    max-width: 400px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    &:hover {
+      height: 600px;
+    }
+    
+    .content {
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 40px;
+    }
+
+    &:hover > .image {
+      left: 0%;
+      height: 3350px;
+    }
+  }
+
 }
 
 </style>
