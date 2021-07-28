@@ -14,8 +14,8 @@
         <li><router-link class="navLinks" :to="{ name: 'Home' }">.contacts<span>()</span></router-link></li>
         <li><a  href="https://github.com/MrValraven" target="_blank"><i id="github" class="fab fa-github"></i></a></li>
         <li><a  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank"><i id="linkedin" class="fab fa-linkedin"></i></a></li>
-        <li><a><i class="fas fa-moon"></i></a></li>
-        <li><a><i class="fas fa-sun"></i></a></li>
+         <li v-if="!isDarkMode"><a><i class="fas fa-sun"></i></a></li>
+        <li v-else><a><i class="fas fa-moon"></i></a></li>
       </ul>
 	  </nav>
   </header>
@@ -27,6 +27,9 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'Navbar',
+  props: {
+    isDarkMode: Boolean,
+  }
 });
 </script>
 

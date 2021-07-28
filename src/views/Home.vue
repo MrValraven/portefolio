@@ -1,7 +1,7 @@
 <template>
     <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
     <NavbarMobile v-if="(mobileMode && isAtTop) || (activatedNavbar && mobileMode)" @click="activatedNavbar = !activatedNavbar" />
-    <Navbar v-if="!mobileMode" class="navbar" />
+    <Navbar v-if="!mobileMode" class="navbar" :isDarkMode="false"/>
     <div v-if="!activatedNavbar" class="pageContent">
       <section class="hero">
         <div class="heroText">
@@ -21,7 +21,7 @@
           <div class="buttons">
             <div class="buttoes">
               <Button @click="scrollToElement('.work')" buttonText="See my work"/>
-              <Button class="lastButton" buttonText="Contact me" />
+              <Button @click="scrollToElement('.contacts')" class="lastButton" buttonText="Contact me" />
             </div>
           </div>
         </div>
@@ -423,11 +423,15 @@
                 <i id="linkedin" class="fab fa-linkedin"></i>
                 <p>Tiago Costa</p>
               </a>
-              <a  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank">
+              <a @click="copyDiscord">
                 <i id="discord" class="fab fa-discord"></i>
-                <p>Valraven#7264</p>
+                <p id="discordID">Valraven#7264</p>
               </a>
           </div>
+        </div>
+        <div v-if="openNotification" class="notification">
+          <p>DiscordID copied sucessfully</p>
+          <i @click="openNotification = false" class="fas fa-times"></i>
         </div>
       </section>
       <section class="frases" v-if="finished">
@@ -500,6 +504,7 @@ export default defineComponent({
       contactEmail: "",
       contactMessage: "",
       weekDayOfToday: "",
+      openNotification: false,
     }
   },
   components: {
@@ -731,6 +736,28 @@ export default defineComponent({
       await this.sleepNow(delay);
       this.codeEnd = true;
       await this.typeCode('.lastp', 'PS C:\\Users\\tiagoCosta\\Desktop\\Trabalhos\\portefolio>')
+    },
+    async copyDiscord() {
+
+      let copyText = document.getElementById("discordID")!;  
+
+      // creating textarea of html
+      let input = document.createElement("textarea");
+
+      //adding p tag text to textarea 
+      input.value = copyText.textContent!;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand("Copy");
+
+      // removing textarea after copy
+      input.remove();
+
+      this.openNotification = true;
+
+      setTimeout(() => {
+        this.openNotification = false;
+      }, 10000);
     }
   },
 });
@@ -1684,6 +1711,10 @@ section {
   flex-direction: column;
   padding-bottom: 100px;
 
+  #video {
+    border-radius: 12px;
+  }
+
   .content {
     display: flex;
     width: 100%;
@@ -1699,10 +1730,6 @@ section {
       margin-top: -20px;
       margin-left: 5px;
       margin-bottom: 10px;
-    }
-
-    .cta {
-      
     }
 
   form {
@@ -1773,6 +1800,41 @@ section {
         padding-left: 2px;
       }
     }
+  }
+
+  .notification {
+    position: fixed;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    top: 20px;
+    right: 0px;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 20px;
+    background-color: $darkBlue;
+    color: $whiteBlue;
+    animation: slideIn 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+
+    p {
+      padding: 0 5px 0 5px;
+    }
+
+    i  {
+      padding: 5px;
+      cursor: pointer;
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+    
   }
 }
 
