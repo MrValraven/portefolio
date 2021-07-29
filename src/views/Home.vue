@@ -71,13 +71,13 @@
                   <span :class="{span1: isOnExpo}">A modern approach to the </span>
                 </span>
                 <span  :class="{line1: isOnExpo}">
-                  <span :class="{span2: isOnExpo}">upcoming technology and</span>
+                  <span :class="{span2: isOnExpo}"> upcoming technology and </span>
                 </span>
                 <span :class="{line1: isOnExpo}">
-                  <span :class="{span3: isOnExpo}">student oriented event in</span>
+                  <span :class="{span3: isOnExpo}"> student oriented event in </span>
                 </span>
                 <span :class="{line1: isOnExpo}">
-                  <span :class="{span4: isOnExpo}">Évora, Portugal.</span>
+                  <span :class="{span4: isOnExpo}"> Évora, Portugal.</span>
                 </span>
               </p>
              <!--  <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p> -->
@@ -384,14 +384,14 @@
             <li>601 lines of HTML</li>
             <li>1007 lines of SCSS</li>
           </ul>
-          <ul class="music">
+          <ul class="music" :style="{color: darkBlue}">
             <h2><i class="fas fa-music"></i></h2>
-            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/0L8ExT028jH3ddEcZwqJJ5?si=q1xvTHkkTTWSqvP52sFmmg&dl_branch=1">Red Hot Chilli Peppers</a></li>
-            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/3MATPJ9tYbcMhw5VOZrRU6?si=RDo3zv7hSxKVNnuAvwspHQ&dl_branch=1">Summer Salt</a></li>
-            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/7wbkl3zgDZEoZer357mVIw?si=Cm5BTNqzRbGlgq0XdUa_ZQ&dl_branch=1">Boy Pablo</a></li>
-            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/3BR3Qfra04DICDUB2BL3eu?si=KGtSyrWOSwKLXpcy-Z65EQ&dl_branch=1">Men on the couch</a></li>
-            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/5p0zkKpBuRguKebwRe0RI2?si=bMgvegk3R6G10ZP6f7kvGg&dl_branch=1">Pierce Fulton</a></li>
-            <li><a rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/2SdOKxC1sSxEyv8JYERaNe?si=khNCyTwzRwmGyZXaXDWdqA&dl_branch=1">RuPaul</a></li>
+            <li><a :style="{color: darkBlue}" rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/0L8ExT028jH3ddEcZwqJJ5?si=q1xvTHkkTTWSqvP52sFmmg&dl_branch=1">Red Hot Chilli Peppers</a></li>
+            <li><a :style="{color: darkBlue}" rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/3MATPJ9tYbcMhw5VOZrRU6?si=RDo3zv7hSxKVNnuAvwspHQ&dl_branch=1">Summer Salt</a></li>
+            <li><a :style="{color: darkBlue}" rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/7wbkl3zgDZEoZer357mVIw?si=Cm5BTNqzRbGlgq0XdUa_ZQ&dl_branch=1">Boy Pablo</a></li>
+            <li><a :style="{color: darkBlue}" rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/3BR3Qfra04DICDUB2BL3eu?si=KGtSyrWOSwKLXpcy-Z65EQ&dl_branch=1">Men on the couch</a></li>
+            <li><a :style="{color: darkBlue}" rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/5p0zkKpBuRguKebwRe0RI2?si=bMgvegk3R6G10ZP6f7kvGg&dl_branch=1">Pierce Fulton</a></li>
+            <li><a :style="{color: darkBlue}" rel="noopener noreferrer" target="_blank" href="https://open.spotify.com/artist/2SdOKxC1sSxEyv8JYERaNe?si=khNCyTwzRwmGyZXaXDWdqA&dl_branch=1">RuPaul</a></li>
           </ul>
           <ul class="food">
             <h2><i class="fas fa-battery-three-quarters"></i></h2>
@@ -882,7 +882,6 @@ export default defineComponent({
 
 section {
   padding: 100px 100px 0px 100px;
-  /* color:#0e1720; */
 }
 
 
@@ -1013,23 +1012,6 @@ section {
     }
   }
 }
-
-@media (max-width: 1450px) {
-
-  .hero .heroText h1 {
-    flex-direction: column;
-    padding-right: 0;
-
-    .firstName {
-      margin-bottom: -50px;
-    }
-  }
-
-  .hero .imgContainer {
-    width: 55%;
-  }
-}
-
 
 .work {
   display: flex;
@@ -1950,32 +1932,158 @@ section {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1450px) {
 
-  .card {
-    width: auto;
-    max-width: 400px;
-    justify-content: flex-start;
-    align-items: flex-start;
+  .hero .heroText h1 {
     flex-direction: column;
+    padding-right: 0;
 
-    &:hover {
-      height: 600px;
-    }
-    
-    .content {
-      width: 100%;
-      top: 0;
-      left: 0;
-      padding: 40px;
-    }
-
-    &:hover > .image {
-      left: 0%;
-      height: 3350px;
+    #firstName {
+      margin-bottom: -50px;
     }
   }
 
+  .hero .imgContainer {
+    width: 55%;
+  }
+}
+
+@media (max-width: 1150px) {
+
+  .hero {
+    flex-direction: column;
+    padding-right: 60px;
+    padding-top: 100px;
+    border-bottom: none;
+
+    .heroText {
+      width: 100%;
+
+      h1 {
+        flex-direction: row;
+      }
+    }
+
+    .imgContainer {
+      width: 70%;
+      border-radius: 50%;
+      background-color: $darkBlue;
+    }
+  }
+
+  .work {
+
+    .projects {
+
+      li {
+        flex-direction: column;
+
+        #hoverImg,
+        #hoverExpo {
+          display: none;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 900px) {
+
+   .hero {
+    flex-direction: column;
+    padding-right: 60px;
+    padding-top: 100px;
+
+    .heroText {
+      width: 100%;
+
+      h1 {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  section {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+   .hero {
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 100px;
+
+    .heroText {
+      width: 100%;
+
+      h1 {
+        flex-direction: column;
+        font-size: 100px;
+
+        #firstName {
+          margin-bottom: -30px;
+        }
+      }
+
+      p {
+        width: 100%;
+      }
+
+      hr {
+        width: 90%;
+      }
+    }
+
+    .imgContainer {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+
+
+  .buttons .buttoes {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .lastButton {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+      }
+}
+
+@media (max-width: 375px) {
+  .hero {
+    flex-direction: column;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 100px;
+
+    .heroText {
+      width: 100%;
+
+      h1 {
+        flex-direction: column;
+        font-size: 70px;
+        margin-top: 10px;
+
+        #firstName {
+          margin-bottom: -30px;
+        }
+      }
+    }
+  }
+
+  
 }
 }
 </style>

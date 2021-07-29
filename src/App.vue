@@ -16,6 +16,7 @@ $lightBlue: #A3CEF1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   cursor: default;
+  overflow: hidden;
 }
 
 body {
