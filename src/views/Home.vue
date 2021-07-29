@@ -1,7 +1,7 @@
 <template>
     <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
     <NavbarMobile v-if="(mobileMode && isAtTop) || (activatedNavbar && mobileMode)" @click="activatedNavbar = !activatedNavbar" />
-    <Navbar v-if="!mobileMode" class="navbar" :isDarkMode="false"/>
+    <Navbar v-if="!mobileMode" class="navbar" :isDarkMode="false" @home="scrollToElement('body')"  @work="scrollToElement('.work')" @about="scrollToElement('.about')"  @contacts="scrollToElement('.contacts')"/>
     <div v-if="!activatedNavbar" class="pageContent">
       <section class="hero">
         <div class="heroText">
@@ -377,12 +377,12 @@
         <div class="builtWith">
           <ul>
             <h2><i class="fas fa-code"></i></h2>
-            <li>601 lines of HTML</li>
-            <li>1007 lines of SCSS</li>
-            <li>354 lines of JS</li>
+            <li>14 SVGs</li>
             <li>58 hours of work</li>
             <li>102 hours of thinking</li>
-            <li>14 SVGs</li>
+            <li>354 lines of JS</li>
+            <li>601 lines of HTML</li>
+            <li>1007 lines of SCSS</li>
           </ul>
           <ul class="music">
             <h2><i class="fas fa-music"></i></h2>
@@ -395,12 +395,12 @@
           </ul>
           <ul class="food">
             <h2><i class="fas fa-battery-three-quarters"></i></h2>
+            <li>1 glass of wine</li>
+            <li>7 pizzas</li>
             <li>37 gigatons of Hummus</li>
             <li>47 vegan chocolate cookies</li>
             <li>85 Chleb</li>
-            <li>7 pizzas</li>
             <li>∞ fresh vegetables</li>
-            <li>1 glass of wine</li>
           </ul>
         </div>
        
@@ -416,7 +416,7 @@
             </video>
           </div>
           <div class="socials">
-              <a  href="https://github.com/MrValraven" target="_blank">
+              <a  class="github" href="https://github.com/MrValraven" target="_blank">
                 <i id="github" class="fab fa-github"></i>
                 <p>@MrValraven</p>
               </a>
@@ -593,6 +593,8 @@ export default defineComponent({
 
     async sleepNow(delay: number) {
       return new Promise((resolve) => setTimeout(resolve,delay));
+
+      () => {}
     },
 
     async typeCode(element: string, word: string) {
@@ -1756,7 +1758,7 @@ section {
     align-items: center;
     flex-direction: column;
     width: 20%;
-    height: 380px;
+    height: 400px;
 
     a {
       display: flex;
@@ -1789,6 +1791,10 @@ section {
 
     .linkedInA {
       margin: 30px 0 30px 0;
+    }
+
+    .github {
+      margin: 10px 0 0px 0;
     }
   }
 
@@ -1867,6 +1873,10 @@ section {
 
     .socials {
       justify-content: space-evenly;
+
+      .github {
+        margin: 0px 0 0px 0;
+      }
     }
 
     form {
@@ -1882,7 +1892,6 @@ section {
 
     
   }
-
 }
 
 @media (max-width: 900px) {
