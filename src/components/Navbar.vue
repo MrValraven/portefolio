@@ -12,10 +12,11 @@
         <li @click="this.$emit('work')"><a :style="{color: textColor}">.work</a></li>
         <li @click="this.$emit('about')"><a :style="{color: textColor}">.about</a></li>
         <li @click="this.$emit('contacts')"><a :style="{color: textColor}">.contacts</a></li>
+        <li><a :style="{color: textColor}">.curriculumVitae</a></li>
         <li><a :style="{color: textColor}"  href="https://github.com/MrValraven" target="_blank"><i id="github" class="fab fa-github"></i></a></li>
         <li><a :style="{color: textColor}"  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank"><i id="linkedin" class="fab fa-linkedin"></i></a></li>
-        <li @click="this.$emit('toggleTheme') " v-if="!isDarkMode"><a :style="{color: textColor}"><i class="fas fa-sun"></i></a></li>
-        <li @click="this.$emit('toggleTheme') " v-else><a :style="{color: textColor}"><i class="fas fa-moon"></i></a></li>
+        <li class="sun" @click="this.$emit('toggleTheme') " v-if="!isDarkMode"><a :style="{color: textColor}"><i class="fas fa-sun"></i></a></li>
+        <li class="moon" @click="this.$emit('toggleTheme') " v-else><a :style="{color: textColor}"><i class="fas fa-moon"></i></a></li>
       </ul>
 	  </nav>
   </header>
@@ -92,6 +93,24 @@ header {
             transform: translateY(-5px);
           }
         }  
+      }
+
+      .sun,
+      .moon {
+        transform: translateY(-300%);
+        opacity: 0;
+        animation: dropDown 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+      }
+
+      @keyframes dropDown {
+        0% {
+          transform: translateY(-300%);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0%);
+          opacity: 1;
+        }
       }
     }
   }
