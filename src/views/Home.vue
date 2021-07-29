@@ -1,8 +1,8 @@
 <template>
     <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
     <NavbarMobile v-if="(mobileMode && isAtTop) || (activatedNavbar && mobileMode)" @click="activatedNavbar = !activatedNavbar" />
-    <Navbar v-if="!mobileMode" class="navbar" :isDarkMode="false" @home="scrollToElement('body')"  @work="scrollToElement('.work')" @about="scrollToElement('.about')"  @contacts="scrollToElement('.contacts')"/>
-    <div v-if="!activatedNavbar" class="pageContent">
+    <Navbar v-if="!mobileMode" class="navbar" @toggleTheme="toggleDarkMode()" :textColor="darkBlue" :isDarkMode="isDarkMode" @home="scrollToElement('body')"  @work="scrollToElement('.work')" @about="scrollToElement('.about')"  @contacts="scrollToElement('.contacts')"/>
+    <div v-if="!activatedNavbar" class="pageContent" :style="{backgroundColor: whiteBlue, color: darkBlue} ">
       <section class="hero">
         <div class="heroText">
           <h2><span>Hi there 👋, I'm</span></h2>
@@ -16,12 +16,12 @@
               <span class="char" v-for="(char, index) in chars2" :key="char.id" :data-index="index">{{ char.text }}</span>
             </span>
           </h1>
-          <hr>
+          <hr :style="{backgroundColor: darkBlue, borderColor: darkBlue} ">
           <p><span>I'm a creative Fullstack Developer who loves to create elegant and functional user interfaces and web apps</span></p>
           <div class="buttons">
             <div class="buttoes">
-              <Button @click="scrollToElement('.work')" buttonText="See my work"/>
-              <Button @click="scrollToElement('.contacts')" class="lastButton" buttonText="Contact me" />
+              <Button @click="scrollToElement('.work')" buttonText="See my work" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}"/>
+              <Button @click="scrollToElement('.contacts')" class="lastButton" buttonText="Contact me" :style="{backgroundColor: whiteBlue, color: darkBlue, borderColor: darkBlue}"/>
             </div>
           </div>
         </div>
@@ -54,8 +54,8 @@
               <p class="tech"><span :class="{animate: isOnTeto}">HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
               <div class="links">
                 <div :class="{link: isOnTeto}">
-                  <Button buttonText="Live Website" link="https://www.seistetos.uevora.pt/#/" />
-                  <Button class="lastButton" buttonText="Source Code" link="https://github.com/MrValraven/seistetos" />
+                  <Button buttonText="Live Website" link="https://www.seistetos.uevora.pt/#/" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}"/>
+                  <Button class="lastButton" buttonText="Source Code" link="https://github.com/MrValraven/seistetos" :style="{backgroundColor: whiteBlue, color: darkBlue, borderColor: darkBlue}"/>
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@
               <p class="tech"><span :class="{animate: isOnExpo}">HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
               <div class="links">
                 <div class="link" :class="{animate: isOnExpo}">
-                  <Button buttonText="Live Website" link="https://expoestudante.aaue.pt/#/" />
+                  <Button buttonText="Live Website" link="https://expoestudante.aaue.pt/#/" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}"/>
                 </div>
               </div>
             </div>
@@ -406,9 +406,9 @@
        
       </section>
       <section class="contacts">
-        <h1>Let's create cool things together</h1>
-        <h3>Stay creative and have a stunning {{ weekDayOfToday }}!</h3>
-        <div class="content">
+        <h1 :style="{backgroundColor: white} ">Let's create cool things together</h1>
+        <h3 :style="{backgroundColor: white} ">Stay creative and have a stunning {{ weekDayOfToday }}!</h3>
+        <div class="content" :style="{backgroundColor: white} ">
           <div class="cta">
             <video id="video" autoplay="true" muted="true" loop="true">
               <source src="@/assets/brofist.mp4"
@@ -416,30 +416,30 @@
             </video>
           </div>
           <div class="socials">
-              <a  class="github" href="https://github.com/MrValraven" target="_blank">
-                <i id="github" class="fab fa-github"></i>
+              <a  class="github" href="https://github.com/MrValraven" target="_blank"  :style="{color: darkBlue} ">
+                <i id="github" class="fab fa-github" :style="{color: darkBlue} "></i>
                 <p>@MrValraven</p>
               </a>
-              <a class="linkedInA" href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank">
-                <i id="linkedin" class="fab fa-linkedin"></i>
+              <a class="linkedInA" href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank" :style="{color: darkBlue} ">
+                <i id="linkedin" class="fab fa-linkedin" :style="{color: darkBlue} "></i>
                 <p>Tiago Costa</p>
               </a>
-              <a @click="copyDiscord">
-                <i id="discord" class="fab fa-discord"></i>
+              <a @click="copyDiscord" :style="{color: darkBlue} ">
+                <i id="discord" class="fab fa-discord" :style="{color: darkBlue} "></i>
                 <p id="discordID">Valraven#7264</p>
               </a>
           </div>
           <form @submit.prevent>
-            <label for="contactName">Name</label>
+            <label for="contactName" :style="{color: darkBlue} ">Name</label>
             <input type="text" v-model="contactName" required>
-            <label for="contactEmail">Email</label>
+            <label for="contactEmail" :style="{color: darkBlue} ">Email</label>
             <input type="text" v-model="contactEmail" required>
-            <label for="contactMessage">Message</label>
+            <label for="contactMessage" :style="{color: darkBlue} ">Message</label>
             <textarea type="text" v-model="contactMessage"  required/>
-            <Button class="contactButton" buttonText="Send message"/>
+            <Button class="contactButton" buttonText="Send message" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}" />
           </form>
         </div>
-        <div v-if="openNotification" class="notification">
+        <div v-if="openNotification" class="notification"  :style="{backgroundColor: darkBlue, color: whiteBlue}" >
           <p>DiscordID copied sucessfully</p>
           <i @click="openNotification = false" class="fas fa-times"></i>
         </div>
@@ -515,6 +515,15 @@ export default defineComponent({
       contactMessage: "",
       weekDayOfToday: "",
       openNotification: false,
+      isDarkMode: false,
+      theme: 'light',
+      whiteBlue: '#E7ECEF',
+      darkBlue: '#274C77',
+      normalBlue: '#6aa7cf',
+      lightBlue: '#A3CEF1',
+      editorBlue: '#21313c',
+      gostoDesteAzul: '#aedbf7',
+      white: '#FFFFFF',
     }
   },
   components: {
@@ -527,6 +536,8 @@ export default defineComponent({
     window.addEventListener('scroll', this.handleScroll);
     this.handleResize();
     window.addEventListener('resize', this.handleResize);
+    const currentTheme = localStorage.getItem("theme")!;
+    this.checkTheme(currentTheme);
     for(let i: number = 122; i < 146; i++) {
       this.lineNumbers.push(i);
     }
@@ -593,8 +604,6 @@ export default defineComponent({
 
     async sleepNow(delay: number) {
       return new Promise((resolve) => setTimeout(resolve,delay));
-
-      () => {}
     },
 
     async typeCode(element: string, word: string) {
@@ -770,6 +779,44 @@ export default defineComponent({
       setTimeout(() => {
         this.openNotification = false;
       }, 10000);
+    },
+    checkTheme(theme: string) {
+
+      if(theme === null) {
+        this.theme = 'light';
+      }
+
+      else {
+        this.theme = theme;
+      }
+      
+
+      if(theme === 'light') {
+        this.whiteBlue = '#E7ECEF';
+        this.darkBlue = '#274C77';
+        this.normalBlue = '#6aa7cf';
+        this.lightBlue = '#A3CEF1';
+        this.editorBlue = '#21313c';
+        this.gostoDesteAzul = '#aedbf7';
+        this.white = '#FFFFFF'
+        this.isDarkMode = false;
+      }
+
+      else {
+        this.whiteBlue = '#0e1720';/* '#112236'; */
+        this.darkBlue = '#E7ECEF';
+        this.normalBlue = '#E7ECEF';
+        this.white = '#274C77';
+        this.isDarkMode = true;
+      }
+    },
+    toggleDarkMode() {
+      this.theme === 'light' ? this.theme = 'dark' : this.theme = 'light';
+
+      this.checkTheme(this.theme);
+
+      // Finally, let's save the current preference to localStorage to keep using it
+      localStorage.setItem("theme", this.theme);
     }
   },
 });
@@ -814,20 +861,30 @@ export default defineComponent({
   
 }
 
-$whiteBlue: #E7ECEF;
-$darkBlue: #274C77;
-$normalBlue: #6aa7cf;
-$lightBlue: #A3CEF1;
-$editorBlue: #21313c;
-$gostoDesteAzul: #aedbf7;
-$easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
-$fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
-$delay: 0.5s;
-$h1Size: 70px;
+.pageContent {
+  $whiteBlue: #E7ECEF;
+  $darkBlue: #274C77;
+  $normalBlue: #6aa7cf;
+  $lightBlue: #A3CEF1;
+  $editorBlue: #21313c;
+  $gostoDesteAzul: #aedbf7;
+
+  $easing: cubic-bezier(0.39, 1.61, 0.89, 1.22);
+  $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
+  $delay: 0.5s;
+  $h1Size: 70px;
+
+  color: $darkBlue;
+  background-color: $whiteBlue;
+
+  transition: all 1s $fastEasing;
+
 
 section {
   padding: 100px 100px 0px 100px;
+  /* color:#0e1720; */
 }
+
 
 .hero {
   display: flex;
@@ -987,7 +1044,6 @@ section {
     border-radius: 16px;
     margin-right: 25px;
     filter: grayscale(30%);
-/*     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
   }
 
@@ -1921,5 +1977,5 @@ section {
   }
 
 }
-
+}
 </style>

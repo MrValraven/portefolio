@@ -8,14 +8,14 @@
               </router-link>
           </div>
       <ul>
-        <li @click="this.$emit('home')"><a>.home</a></li>
-        <li @click="this.$emit('work')"><a>.work</a></li>
-        <li @click="this.$emit('about')"><a>.about</a></li>
-        <li @click="this.$emit('contacts')"><a>.contacts</a></li>
-        <li><a  href="https://github.com/MrValraven" target="_blank"><i id="github" class="fab fa-github"></i></a></li>
-        <li><a  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank"><i id="linkedin" class="fab fa-linkedin"></i></a></li>
-        <li v-if="!isDarkMode"><a><i class="fas fa-sun"></i></a></li>
-        <li v-else><a><i class="fas fa-moon"></i></a></li>
+        <li @click="this.$emit('home')"><a :style="{color: textColor}">.home</a></li>
+        <li @click="this.$emit('work')"><a :style="{color: textColor}">.work</a></li>
+        <li @click="this.$emit('about')"><a :style="{color: textColor}">.about</a></li>
+        <li @click="this.$emit('contacts')"><a :style="{color: textColor}">.contacts</a></li>
+        <li><a :style="{color: textColor}"  href="https://github.com/MrValraven" target="_blank"><i id="github" class="fab fa-github"></i></a></li>
+        <li><a :style="{color: textColor}"  href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank"><i id="linkedin" class="fab fa-linkedin"></i></a></li>
+        <li @click="this.$emit('toggleTheme') " v-if="!isDarkMode"><a :style="{color: textColor}"><i class="fas fa-sun"></i></a></li>
+        <li @click="this.$emit('toggleTheme') " v-else><a :style="{color: textColor}"><i class="fas fa-moon"></i></a></li>
       </ul>
 	  </nav>
   </header>
@@ -29,8 +29,9 @@ export default defineComponent({
   name: 'Navbar',
   props: {
     isDarkMode: Boolean,
+    textColor: String,
   },
-  emits: ['home','work','about','contacts'],
+  emits: ['home','work','about','contacts', 'toggleTheme'],
 });
 </script>
 
