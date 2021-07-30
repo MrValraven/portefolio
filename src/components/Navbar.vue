@@ -119,7 +119,7 @@ header {
 
 @media (max-width: 1680px) {
   header nav .logo svg {
-    left: 70px;
+    left: 80px;
   }
 }
 
