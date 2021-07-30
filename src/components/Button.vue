@@ -52,4 +52,11 @@ $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
     border: 1px solid $darkBlue;
 }
 
+@media (max-width: 400px) {
+
+    .button {
+        padding: 10px;
+    }
+}
+
 </style>

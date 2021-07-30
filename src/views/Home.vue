@@ -84,7 +84,7 @@
               <h4><span :class="{animate: isOnExpo}">TechStack:</span></h4>
               <p class="tech"><span :class="{animate: isOnExpo}">HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
               <div class="links">
-                <div class="link" :class="{animate: isOnExpo}">
+                <div :class="{link: isOnExpo}">
                   <Button buttonText="Live Website" link="https://expoestudante.aaue.pt/#/" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}"/>
                 </div>
               </div>
@@ -370,7 +370,7 @@
         </div>
         
       </section>
-      <section id="build">
+      <section id="build" v-if="finished">
         <h2 class="comments">/**</h2>
         <h1 class="comments">* Made with</h1>
         <h2 class="comments">**/</h2>
@@ -1950,9 +1950,13 @@ section {
 
 @media (max-width: 1150px) {
 
+    section {
+      padding: 30px;
+    }
+
   .hero {
     flex-direction: column;
-    padding-right: 60px;
+    padding-right: 30px;
     padding-top: 100px;
     border-bottom: none;
 
@@ -1976,12 +1980,32 @@ section {
     .projects {
 
       li {
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+        justify-content: center;
         flex-direction: column;
 
         #hoverImg,
         #hoverExpo {
           display: none;
         }
+
+        .links {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  .about {
+    flex-direction: column;
+
+    .aboutMe,
+    .toolset {
+      width: 100%;
+
+      .title {
+        border-top: 1px solid darken($color: $editorBlue, $amount: 10%);
       }
     }
   }
@@ -2000,6 +2024,33 @@ section {
 
       h1 {
         flex-direction: column;
+      }
+    }
+  }
+
+  .work .projects li { 
+
+    .cardtext {
+      width: 100%;
+      h2 {
+        font-size: 50px;
+      }
+
+      h3 {
+        margin-bottom: 0;
+      }
+
+      h4 {
+        display: none;
+      }
+
+      p {
+        display: none;
+      }
+
+      .links {
+        margin-top: 0;
+        margin-bottom: 20px;
       }
     }
   }
@@ -2044,6 +2095,20 @@ section {
       display: none;
     }
   }
+
+  .work .projects li { 
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+    justify-content: center;
+
+    .cardtext {
+      width: 100%;
+      h2 {
+        font-size: 30px;
+      }
+
+    }
+  }
 }
 
 @media (max-width: 450px) {
@@ -2051,13 +2116,8 @@ section {
 
   .buttons .buttoes {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         width: 100%;
-
-        .lastButton {
-          margin-left: 0;
-          margin-top: 20px;
-        }
       }
 }
 
@@ -2079,6 +2139,10 @@ section {
         #firstName {
           margin-bottom: -30px;
         }
+      }
+
+      p {
+        font-size: 16px;
       }
     }
   }
