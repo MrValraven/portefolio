@@ -1957,7 +1957,8 @@ section {
   .hero {
     flex-direction: column;
     padding-right: 30px;
-    padding-top: 100px;
+    padding-top: 0px;
+    margin-bottom: 50px;
     border-bottom: none;
 
     .heroText {
@@ -1969,15 +1970,20 @@ section {
     }
 
     .imgContainer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
       width: 70%;
-      border-radius: 50%;
-      background-color: $darkBlue;
     }
   }
 
   .work {
 
     .projects {
+
+      .mainImage {
+        margin: 0;
+      }
 
       li {
         padding-bottom: 50px;
@@ -2010,6 +2016,29 @@ section {
     }
   }
 
+  .contacts {
+
+    .content {
+      flex-direction: column;
+
+      .cta {
+        width: 100%;
+
+        video {
+          width: 80%;
+        }
+      }
+      
+      .socials {
+        width: 100%;
+        flex-direction: row;
+      }
+
+      form {
+        width: 100%;
+      }
+    }
+  }
 }
 
 @media (max-width: 900px) {
@@ -2025,6 +2054,10 @@ section {
       h1 {
         flex-direction: column;
       }
+    }
+
+    .imgContainer {
+      display: none;
     }
   }
 
@@ -2119,9 +2152,49 @@ section {
         flex-direction: row;
         width: 100%;
       }
+
+  .about .aboutMe {
+    padding-bottom: 20px;
+  }
+
+  .about .toolset .editor .finalCode {
+    margin-left: 10px;
+  }
+
+  .about .card .code p {
+    font-size: 14px;
+  }
+
+  .about .card .editor .lineNumbers p{
+    font-size: 14px;
+  }
+
+  .about .toolset .editor .finalCode p {
+    font-size: 14px;
+  }
+
+  .about .toolset .editor .lineNumbers li {
+    font-size: 14px;
+  }
+
+  .about .toolset .terminal .lastp {
+    font-size: 14px;
+    margin-left: 10px;
+    word-break: break-all;
+  }
+
+  .about .toolset ul li {
+    padding: 10px;
+    margin: 0 5px 25px 5px;
+  }
 }
 
 @media (max-width: 375px) {
+
+    section {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
   .hero {
     flex-direction: column;
     padding-right: 20px;
@@ -2147,6 +2220,22 @@ section {
     }
   }
 
+  .work .projects .seistetos {
+
+    .cardtext h2 {
+      line-height: 30px;
+    }
+
+    .link {
+      
+      .lastButton {
+          margin-left: 10px;
+        }
+    }
+    
+  
+  }
+  
   
 }
 }
