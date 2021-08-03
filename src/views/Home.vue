@@ -159,7 +159,7 @@
                   <p>
                     <span id="git" class="code-red"></span>
                     <span id="doisPontos4"></span>
-                    <span class="code-green"><a href="https://github.com/MrValraven" target="_blank" id="githubLink" class="code-green"></a></span>
+                    <span class="code-green"><a href="https://github.com/MrValraven" target="_blank" id="githubLink" class="code-green" rel="noopener noreferrer"></a></span>
                     <span id="virgula4"></span>
                   </p>
                   <p>
@@ -418,11 +418,11 @@
             </video>
           </div>
           <div class="socials">
-              <a  class="github" href="https://github.com/MrValraven" target="_blank"  :style="{color: darkBlue} ">
+              <a  class="github" href="https://github.com/MrValraven" target="_blank"  rel="noopener noreferrer" :style="{color: darkBlue} ">
                 <i id="github" class="fab fa-github" :style="{color: darkBlue} "></i>
                 <p>@MrValraven</p>
               </a>
-              <a class="linkedInA" href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank" :style="{color: darkBlue} ">
+              <a class="linkedInA" href="https://www.linkedin.com/in/tiago-costa-b141121b1/" target="_blank" rel="noopener noreferrer" :style="{color: darkBlue} ">
                 <i id="linkedin" class="fab fa-linkedin" :style="{color: darkBlue} "></i>
                 <p>Tiago Costa</p>
               </a>
@@ -433,11 +433,11 @@
           </div>
           <form @submit.prevent>
             <label for="contactName" :style="{color: darkBlue} ">Name</label>
-            <input type="text" v-model="contactName" required>
+            <input type="text" v-model="contactName" required name="contactName" >
             <label for="contactEmail" :style="{color: darkBlue} ">Email</label>
-            <input type="text" v-model="contactEmail" required>
+            <input type="text" v-model="contactEmail" required name="contactEmail" >
             <label for="contactMessage" :style="{color: darkBlue} ">Message</label>
-            <textarea type="text" v-model="contactMessage"  required/>
+            <textarea type="text" v-model="contactMessage"  required name="contactMessage" />
             <Button class="contactButton" buttonText="Send message" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}" />
           </form>
         </div>
