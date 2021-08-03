@@ -170,7 +170,7 @@
                   <p>
                     <span id="chavetas2" class="code-purple"></span>
                   </p>
-                  <p>&nbsp;</p>
+                  <p class="blankSpace">&nbsp;</p>
                   <p>
                     <span id="class" class="code-purple"></span>
                     <span id="toolset" class="code-yellow"></span>
@@ -192,7 +192,7 @@
                     <span id="array2" class="code-purple"></span>
                     <span id="pontovirgula1"></span>
                   </p>
-                  <p>&nbsp;</p>
+                  <p class="blankSpace">&nbsp;</p>
                   <p>
                     <span id="constructor" class="code-yellow"></span>
                     <span id="parenteses1" class="code-purple"></span>
@@ -225,7 +225,7 @@
                     <span id="pontovirgula2"></span>
                   </p>
                   <p><span id="chavetas9" class="code-purple"></span></p>
-                  <p>&nbsp;</p>
+                  <p class="blankSpace">&nbsp;</p>
                   <p>
                     <span id="display" class="code-blue"></span>
                     <span id="parenteses5" class="code-blue"></span>
@@ -426,7 +426,7 @@
                 <i id="linkedin" class="fab fa-linkedin" :style="{color: darkBlue} "></i>
                 <p>Tiago Costa</p>
               </a>
-              <a @click="copyDiscord" :style="{color: darkBlue} ">
+              <a class="discord" @click="copyDiscord" :style="{color: darkBlue} ">
                 <i id="discord" class="fab fa-discord" :style="{color: darkBlue} "></i>
                 <p id="discordID">Valraven#7264</p>
               </a>
@@ -2214,17 +2214,52 @@ section {
     word-break: break-all;
   }
 
-  .about .toolset ul li {
-    padding: 10px;
-    margin: 0 5px 25px 5px;
+   .about .toolset ul {
+     justify-content: center;
+   }
+
+   .contacts {
+     padding-bottom: 70px;
+     padding-top: 70px;
+     h1 {
+       font-size: 36px;
+      padding-left: 20px;
+      padding-right: 20px;
+     }
+
+     h3 {
+      margin: 0;
+      padding-left: 20px;
+      padding-right: 20px;
+      font-weight: 300;
+      font-size: 18px;
+     }
+
+     .content {
+       padding: 20px;
+     }
   }
+   
 
   .contacts .content .socials {
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    a {
+      width: 50%;
+    }
+
+    .linkedInA {
+      margin: 0;
+    }
+
+    .discord {
+      margin-top: -100px
+    }
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 376px) {
 
     section {
       padding-right: 20px;
@@ -2267,11 +2302,30 @@ section {
           margin-left: 10px;
         }
     }
-    
-  
+  }
+
+  .about .card .editor .blankSpace {
+    margin-bottom: 10px;
   }
   
   
+}
+
+@media (max-width: 340px) {
+   .about .card .code p {
+    margin-left: 10px;
+  }
+
+  .about .aboutMe {
+    padding-bottom: 0;
+    margin-bottom: 10px;
+  }
+
+  .about .card {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    z-index: 10;
+  }
 }
 }
 </style>
