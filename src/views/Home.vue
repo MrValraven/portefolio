@@ -1778,7 +1778,7 @@ section {
       padding-bottom: 10px;
       background-color: white;
       filter: grayscale(0%);
-      padding-left: 60px;
+      padding-left: 55px;
 
     }
 
