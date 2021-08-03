@@ -1,6 +1,8 @@
 <template>
     <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
-    <NavbarMobile v-if="(mobileMode && isAtTop) || (activatedNavbar && mobileMode)" @click="activatedNavbar = !activatedNavbar" />
+    <li class="sun darkIcon" @click="toggleDarkMode()" v-if="!isDarkMode && mobileMode"><a :style="{color: darkBlue}"><i class="fas fa-sun"></i></a></li>
+    <li class="moon darkIcon" @click="toggleDarkMode()" v-else-if="isDarkMode && mobileMode"><a :style="{color: darkBlue}"><i class="fas fa-moon"></i></a></li>
+    <NavbarMobile  v-if="mobileMode" :textColor="darkBlue" :backgroundColor="whiteBlue"/>
     <Navbar v-if="!mobileMode" class="navbar" @toggleTheme="toggleDarkMode()" :textColor="darkBlue" :isDarkMode="isDarkMode" @home="scrollToElement('body')"  @work="scrollToElement('.work')" @about="scrollToElement('.about')"  @contacts="scrollToElement('.contacts')"/>
     <div v-if="!activatedNavbar" class="pageContent" :style="{backgroundColor: whiteBlue, color: darkBlue} ">
       <section class="hero">
@@ -445,6 +447,8 @@
         </div>
       </section>
       <section class="frases" v-if="finished">
+        <h1>video / seccao sobre todo o processo de construçao dos websites e processo criativo e tecnico</h1>
+        <h1>video of myself being a retard </h1>
         <h1>It's important to think outside of the box</h1>
         <h1>show personality</h1>
       </section>
@@ -859,6 +863,33 @@ export default defineComponent({
     transform: scale(1);
   }
   
+}
+
+.darkIcon {
+  position: absolute;
+  font-size: 30px;
+  top: 8px;
+  left: 15px;
+  padding: 5px;
+  z-index: 9999;
+}
+
+.sun,
+.moon {
+  transform: translateY(-300%);
+  opacity: 0;
+  animation: dropDown 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+@keyframes dropDown {
+  0% {
+    transform: translateY(-300%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
 .pageContent {
@@ -2186,6 +2217,10 @@ section {
   .about .toolset ul li {
     padding: 10px;
     margin: 0 5px 25px 5px;
+  }
+
+  .contacts .content .socials {
+    flex-direction: column;
   }
 }
 

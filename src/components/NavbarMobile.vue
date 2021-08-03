@@ -8,16 +8,17 @@
         @enter="enter" 
         class="navLinks" 
         :class="isActive"
+        :style="{backgroundColor: backgroundColor}"
         >
-            <li v-for="(navlink, index) in navLinks" :key="navlink.id" :data-index="index"><router-link :to="{ name: navlink.routeName }"> {{ navlink.routeText }}</router-link></li>
+            <li v-for="(navlink, index) in navLinks" :key="navlink.id" :data-index="index"><router-link :style="{color: textColor}" :to="{ name: navlink.routeName }"> {{ navlink.routeText }}</router-link></li>
         </transition-group>
 
         <div class="burger" @click="toggleClass()">
-            <div v-if="!isActive" class="burgerText">MENU</div>
+            <div v-if="!isActive" class="burgerText" :style="{color: textColor}">MENU</div>
             <div class="drawing" :class="newClass">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
+                <div class="line1" :style="{backgroundColor: textColor}"></div>
+                <div class="line2" :style="{backgroundColor: textColor}"></div>
+                <div class="line3" :style="{backgroundColor: textColor}"></div>
             </div>
         </div>
        
@@ -30,13 +31,11 @@ import gsap from 'gsap';
 export default defineComponent({          
     setup() {
         const navLinks = [
-            {id: 0, routeName: "Home", routeText: "Home"},
-            {id: 1, routeName: "Home", routeText: "Noticias"},
-            {id: 2, routeName: "Home", routeText: "Discursos"},
-            {id: 3, routeName: "Home", routeText: "Eventos"},
-            {id: 4, routeName: "Home", routeText: "Associação"},
-            {id: 5, routeName: "Home", routeText: "Serviços"},
-            {id: 6, routeName: "Home", routeText: "Contactos"},
+            {id: 0, routeName: "Home", routeText: ".home()"},
+            {id: 1, routeName: "Home", routeText: ".work()"},
+            {id: 2, routeName: "Home", routeText: ".about()"},
+            {id: 3, routeName: "Home", routeText: ".contacts()"},
+            {id: 4, routeName: "Home", routeText: ".curriculumVitae()"},
         ]
         const beforeEnter: any = (el: any) => {
             el.style.opacity = 0;
@@ -59,13 +58,20 @@ export default defineComponent({
             toggle: false,
             newClass: "",
             isActive: "",
+            activatedNavbar: false,
         }
     },
+    props: {
+        textColor: String,
+        backgroundColor: String,
+    },
+    emits: ["activatedNavbar"],
     methods: {
         toggleClass() {
             this.toggle = !this.toggle;
             this.toggle ? this.newClass = "toggle" : this.newClass = "";
             this.toggle ? this.isActive = "isActive" : this.isActive = "";
+            this.$emit("activatedNavbar", this.activatedNavbar);
         },
     },
 });
@@ -87,20 +93,19 @@ body {
         right: 0px;
         height: 100vh;
         top: 0vh;
-        background-color: #6d1112;
         display: none;
         flex-direction: column;
         align-items: center;
+        background-color: #040427;
         justify-content: space-around;
         opacity: 0;
         width: 100%;
         transition: all 0.4s ease-in;
         li {
             opacity: 1;
-            letter-spacing: 5px;
             font-size: 20px;
-            text-transform: uppercase;
             a {
+                font-family: monospace;
                 color: white;
             }
         }
@@ -116,7 +121,7 @@ body {
         display: flex;
         align-items: center;
         cursor: pointer;
-        position: fixed;
+        position: absolute;
         top: 20px;
         right: 20px;
         .burgerText {
@@ -127,7 +132,6 @@ body {
             width: 35px;
             height: 3px;
             margin: 5px;
-            background-color: black;
             transition: all 0.3s ease;
         }
          .toggle {
