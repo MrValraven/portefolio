@@ -1,6 +1,6 @@
 # Portefolio Websote
 
-This is my personal portefolio website, it was one of the funnest projects I've developed so far as I was able to unleash my creative potentional on it and learn a bit more on CSS and Javascript animations.
+This is my personal portefolio website, it was one of the funnest projects I've developed so far as I was able to unleash my creative potential on it and learn a bit more on CSS and Javascript animations.
 Code really is the modern's day version of magic.
 
 ## Overview
