@@ -52,10 +52,16 @@ $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
     border: 1px solid $darkBlue;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
 
     .button {
-        padding: 10px;
+        padding: 15px;
+    }
+}
+@media (max-width: 350px) {
+
+    .button {
+        padding: 8px;
     }
 }
 
