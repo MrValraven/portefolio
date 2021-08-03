@@ -795,7 +795,7 @@ export default defineComponent({
       }
       
 
-      if(theme === 'light') {
+      if(this.theme === 'light') {
         this.whiteBlue = '#E7ECEF';
         this.darkBlue = '#274C77';
         this.normalBlue = '#6aa7cf';
