@@ -431,7 +431,7 @@
                 <p id="discordID">Valraven#7264</p>
               </a>
           </div>
-          <form @submit.prevent>
+          <form @submit.prevent="sendEmail">
             <label for="contactName" :style="{color: darkBlue} ">Name</label>
             <input type="text" v-model="contactName" required name="contactName" >
             <label for="contactEmail" :style="{color: darkBlue} ">Email</label>
@@ -821,6 +821,17 @@ export default defineComponent({
 
       // Finally, let's save the current preference to localStorage to keep using it
       localStorage.setItem("theme", this.theme);
+    },
+    sendEmail() {
+      const message = {
+        to: "akatiago@gmail.com",
+        from: this.contactEmail,
+       /*  "to": "akatiago@gmail.com",
+	"from": "akatiago@gmail.com",
+	"subject": "first email yay",
+	"text": "road to fullstack",
+	"html": "road to fullstack" */
+      }
     }
   },
 });
