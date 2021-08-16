@@ -833,10 +833,7 @@ export default defineComponent({
 
       const requestOptions = {
         method: "POST",
-        headers: { "Content-Type": "application/json",
-                    "Access-Control-Allow-Headers": "Acept", 
-                    "Access-Control-Allow-Methods": "POST",
-                 },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(message)
       };
       fetch("https://send-personal-email-api.herokuapp.com/sendemail", requestOptions)
