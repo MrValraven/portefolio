@@ -825,10 +825,10 @@ export default defineComponent({
     sendEmail() {
       const message = {
         to: "akatiago@gmail.com",
-        from: this.contactEmail,
+        from: "akatiago@gmail.com",
         subject: this.contactName,
         text: this.contactMessage,
-        html: this.contactMessage
+        html: this.contactMessage + " " + this.contactEmail
       }
 
       const requestOptions = {
