@@ -431,14 +431,14 @@
                 <p id="discordID">Valraven#7264</p>
               </a>
           </div>
-          <form @submit.prevent="sendEmail">
+          <form @submit.prevent>
             <label for="contactName" :style="{color: darkBlue} ">Name</label>
             <input type="text" v-model="contactName" required name="contactName" >
             <label for="contactEmail" :style="{color: darkBlue} ">Email</label>
             <input type="text" v-model="contactEmail" required name="contactEmail" >
             <label for="contactMessage" :style="{color: darkBlue} ">Message</label>
             <textarea type="text" v-model="contactMessage"  required name="contactMessage" />
-            <Button class="contactButton" buttonText="Send message" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}" />
+            <Button @click="sendEmail" class="contactButton" buttonText="Send message" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}" />
           </form>
         </div>
         <div v-if="openNotification" class="notification"  :style="{backgroundColor: darkBlue, color: whiteBlue}" >
@@ -823,15 +823,34 @@ export default defineComponent({
       localStorage.setItem("theme", this.theme);
     },
     sendEmail() {
+      console.log("sending email")
       const message = {
         to: "akatiago@gmail.com",
         from: this.contactEmail,
-       /*  "to": "akatiago@gmail.com",
-	"from": "akatiago@gmail.com",
-	"subject": "first email yay",
-	"text": "road to fullstack",
-	"html": "road to fullstack" */
+        subject: this.contactName,
+        text: this.contactMessage,
+        html: this.contactMessage
       }
+
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json",
+                    "Access-Control-Allow-Headers": "Acept", 
+                    "Access-Control-Allow-Methods": "POST",
+                 },
+        body: JSON.stringify(message)
+      };
+      fetch("https://send-personal-email-api.herokuapp.com/sendemail", requestOptions)
+        .then(response => response.json())
+        .then(() => {
+          this.contactEmail = "";
+          this.contactName = "";
+          this.contactMessage = "";
+          console.log("email sent")
+        })
+        .catch(err => console.log(err));
+
+        console.log("deu merda")
     }
   },
 });
