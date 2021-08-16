@@ -433,7 +433,7 @@
             <label for="contactName" :style="{color: darkBlue} ">Name</label>
             <input type="text" v-model="contactName" required name="contactName" >
             <label for="contactEmail" :style="{color: darkBlue} ">Email</label>
-            <input type="text" v-model="contactEmail" required name="contactEmail" >
+            <input type="email" v-model="contactEmail" required name="contactEmail" >
             <label for="contactMessage" :style="{color: darkBlue} ">Message</label>
             <textarea type="text" v-model="contactMessage"  required name="contactMessage" />
             <Button @click="sendEmail" class="contactButton" buttonText="Send message" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}" />
@@ -832,7 +832,6 @@ export default defineComponent({
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json",
-                    "Access-Control-Allow-Headers": "Acept"
                 },
         body: JSON.stringify(message)
       };
