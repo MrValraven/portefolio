@@ -823,7 +823,6 @@ export default defineComponent({
       localStorage.setItem("theme", this.theme);
     },
     sendEmail() {
-      console.log("sending email")
       const message = {
         to: "akatiago@gmail.com",
         from: this.contactEmail,
@@ -846,11 +845,9 @@ export default defineComponent({
           this.contactEmail = "";
           this.contactName = "";
           this.contactMessage = "";
-          console.log("email sent")
         })
         .catch(err => console.log(err));
 
-        console.log("deu merda")
     }
   },
 });
