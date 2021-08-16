@@ -2,7 +2,7 @@
     <ScrollToTopButton v-if="!isAtTop"  @click="scrollToElement('body')"/>
     <li class="sun darkIcon" @click="toggleDarkMode()" v-if="!isDarkMode && mobileMode"><a :style="{color: darkBlue}"><i class="fas fa-sun"></i></a></li>
     <li class="moon darkIcon" @click="toggleDarkMode()" v-else-if="isDarkMode && mobileMode"><a :style="{color: darkBlue}"><i class="fas fa-moon"></i></a></li>
-    <NavbarMobile  v-if="mobileMode" :textColor="darkBlue" :backgroundColor="whiteBlue"/>
+    <NavbarMobile  v-if="mobileMode" :textColor="darkBlue" :backgroundColor="whiteBlue" @home="scrollToElement('body')"  @work="scrollToElement('.work')" @about="scrollToElement('.about')"  @contacts="scrollToElement('.contacts')"/>
     <Navbar v-if="!mobileMode" class="navbar" @toggleTheme="toggleDarkMode()" :textColor="darkBlue" :isDarkMode="isDarkMode" @home="scrollToElement('body')"  @work="scrollToElement('.work')" @about="scrollToElement('.about')"  @contacts="scrollToElement('.contacts')"/>
     <div v-if="!activatedNavbar" class="pageContent" :style="{backgroundColor: whiteBlue, color: darkBlue} ">
       <section class="hero">
@@ -51,7 +51,6 @@
                   <span :class="{span4: isOnTeto}">date with a new and fresh layout.</span>
                 </span>
               </p>
-             <!--  <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p> -->
               <h4><span :class="{animate: isOnTeto}">TechStack:</span></h4>
               <p class="tech"><span :class="{animate: isOnTeto}">HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
               <div class="links">
@@ -82,7 +81,6 @@
                   <span :class="{span4: isOnExpo}"> Évora, Portugal.</span>
                 </span>
               </p>
-             <!--  <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p> -->
               <h4><span :class="{animate: isOnExpo}">TechStack:</span></h4>
               <p class="tech"><span :class="{animate: isOnExpo}">HTML5, Sass, Vue.js, Node.js, Typescript</span></p>
               <div class="links">

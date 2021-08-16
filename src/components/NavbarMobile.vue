@@ -10,7 +10,7 @@
         :class="isActive"
         :style="{backgroundColor: backgroundColor}"
         >
-            <li v-for="(navlink, index) in navLinks" :key="navlink.id" :data-index="index"><router-link :style="{color: textColor}" :to="{ name: navlink.routeName }"> {{ navlink.routeText }}</router-link></li>
+            <li v-for="(navlink, index) in navLinks" :key="navlink.id" :data-index="index"  @click="this.$emit(navlink.emitter), toggleClass()" ><router-link :style="{color: textColor}" :to="{ name: navlink.routeName }"> {{ navlink.routeText }}</router-link></li>
         </transition-group>
 
         <div class="burger" @click="toggleClass()">
@@ -31,10 +31,10 @@ import gsap from 'gsap';
 export default defineComponent({          
     setup() {
         const navLinks = [
-            {id: 0, routeName: "Home", routeText: ".home()"},
-            {id: 1, routeName: "Home", routeText: ".work()"},
-            {id: 2, routeName: "Home", routeText: ".about()"},
-            {id: 3, routeName: "Home", routeText: ".contacts()"},
+            {id: 0, routeName: "Home", routeText: ".home()", emitter: 'home'},
+            {id: 1, routeName: "Home", routeText: ".work()", emitter: 'work'},
+            {id: 2, routeName: "Home", routeText: ".about()", emitter: 'about'},
+            {id: 3, routeName: "Home", routeText: ".contacts()", emitter: 'contacts'},
             {id: 4, routeName: "Home", routeText: ".curriculumVitae()"},
         ]
         const beforeEnter: any = (el: any) => {
@@ -65,7 +65,7 @@ export default defineComponent({
         textColor: String,
         backgroundColor: String,
     },
-    emits: ["activatedNavbar"],
+    emits: ['home','work','about','contacts', 'toggleTheme', 'activatedNavbar'],
     methods: {
         toggleClass() {
             this.toggle = !this.toggle;
