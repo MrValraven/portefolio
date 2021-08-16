@@ -68,19 +68,26 @@ export default defineComponent({
     emits: ['home','work','about','contacts', 'toggleTheme', 'activatedNavbar'],
     methods: {
         toggleClass() {
+            const body =  document.querySelector("body")!;
+
             this.toggle = !this.toggle;
             this.toggle ? this.newClass = "toggle" : this.newClass = "";
             this.toggle ? this.isActive = "isActive" : this.isActive = "";
             this.$emit("activatedNavbar", this.activatedNavbar);
+            
+            if(this.toggle) {
+                body.style.overflowY = "hidden";
+            }
+            else {
+                body.style.overflowY = "auto";
+            }
         },
     },
 });
 </script>
 
 <style lang="scss">
-body {
-		overflow-x: hidden;
-	}
+
 .mobileNav {
     position: absolute;
 	z-index: 10;

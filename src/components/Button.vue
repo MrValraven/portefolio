@@ -1,5 +1,5 @@
 <template>
-  <a :href="link" class="button" rel="noreferrer nooppener" target="_blank">{{buttonText}}</a>
+  <button :href="link" class="button" rel="noreferrer nooppener" target="_blank">{{buttonText}}</button>
 </template>
 
 <script>
@@ -27,6 +27,7 @@ $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
     color: $whiteBlue;
     background-color: $darkBlue;
     border: 1px solid $normalBlue;
+    outline: none;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     padding-top: 1rem;
@@ -37,7 +38,8 @@ $fastEasing: cubic-bezier(0.075, 0.82, 0.165, 1);
     text-align: center;
     opacity: 1;
     border-radius: 0.5rem;
-    transition: all 0.5s $fastEasing ;
+    cursor: pointer;
+    transition: all 0.5s $fastEasing;
 
     &:hover {
         transform: translateY(-5px) !important;
