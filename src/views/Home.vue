@@ -67,7 +67,7 @@
           <li class="expoestudante">
             <div class="cardtext" :style="{opacity: opacityExpo}">
               <h2><span :class="{animate: isOnExpo}">Expo Estudante</span></h2>
-              <h3><span :class="{animate: isOnExpo}">Front-end development</span></h3>
+              <h3><span :class="{animate: isOnExpo}">Fullstack development</span></h3>
               <p>
                 <span :class="{line1: isOnExpo}">
                   <span :class="{span1: isOnExpo}">A modern approach to the </span>
@@ -84,7 +84,7 @@
               </p>
              <!--  <p> Helped the group get more online exposure and improved SEO, while also preserving their history, events, group members that have passed through the group and discography all in a simple and intuitive page</p> -->
               <h4><span :class="{animate: isOnExpo}">TechStack:</span></h4>
-              <p class="tech"><span :class="{animate: isOnExpo}">HTML5, Sass, Vue.js, Vue Router, Typescript</span></p>
+              <p class="tech"><span :class="{animate: isOnExpo}">HTML5, Sass, Vue.js, Node.js, Typescript</span></p>
               <div class="links">
                 <div :class="{link: isOnExpo}">
                   <Button buttonText="Live Website" link="https://expoestudante.aaue.pt/#/" :style="{backgroundColor: darkBlue, color: whiteBlue, borderColor: normalBlue}"/>
@@ -353,12 +353,12 @@
               <p>Node.js</p>
             </li>
             <li :class="{npm: codeEnd}">
-              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path d="M16,17.667h-1.778v-4.111H16V17.667z M32,10v11H16v2H9v-2H0V10H32z M8.889,11.778H1.778v7.667h3.556v-5.889h1.778v5.889 h1.778V11.778z M17.778,11.778h-7.111v9.444h3.556v-1.778h3.556V11.778z M30.222,11.778H19.556v7.667h3.556v-5.889h1.778v5.889 h1.778v-5.889h1.778v5.889h1.778V11.778z"/></svg>
-              <p>Npm</p>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64" height="64"><path d="M32 24.795c-1.164.296-1.884.013-2.53-.957l-4.594-6.356-.664-.88-5.365 7.257c-.613.873-1.256 1.253-2.4.944l6.87-9.222-6.396-8.33c1.1-.214 1.86-.105 2.535.88l4.765 6.435 4.8-6.4c.615-.873 1.276-1.205 2.38-.883l-2.48 3.288-3.36 4.375c-.4.5-.345.842.023 1.325L32 24.795zM.008 15.427l.562-2.764C2.1 7.193 8.37 4.92 12.694 8.3c2.527 1.988 3.155 4.8 3.03 7.95H1.48c-.214 5.67 3.867 9.092 9.07 7.346 1.825-.613 2.9-2.042 3.438-3.83.273-.896.725-1.036 1.567-.78-.43 2.236-1.4 4.104-3.45 5.273-3.063 1.75-7.435 1.184-9.735-1.248C1 21.6.434 19.812.18 17.9c-.04-.316-.12-.617-.18-.92q.008-.776.008-1.552zm1.498-.38h12.872c-.084-4.1-2.637-7.012-6.126-7.037-3.83-.03-6.58 2.813-6.746 7.037z"/></svg>
+              <p>Express.js</p>
             </li>
             <li :class="{yarn: codeEnd}">
-              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32"><path d="M22.6,20.2c-1.8,0.4-2.3,1.5-4.9,2.2c0,0-0.1,0.2-0.5,0.3c-0.6,0.2-3,0.3-3.2,0.3c-0.6,0-0.9-0.2-1-0.4 c-0.3-0.7,0.4-1,0.4-1c-0.4-0.2-0.4-0.5-0.5-0.4c-0.1,0.3-0.2,0.9-0.5,1.2c-0.4,0.4-1.2,0.3-1.7,0c-0.5-0.2,0-0.8,0-0.9 c-0.1,0-0.3,0.1-0.5-0.2c-0.3-0.4-0.8-1.8,0.5-2.9c-0.1-0.5-0.2-2.5,1.9-4c0,0-1-1.1-0.6-2c0.2-0.6,0.3-0.6,0.4-0.7 c0.3-0.1,0.5-0.2,0.7-0.4c1-1,2.2-0.8,2.2-0.8s0.6-1.8,1.1-1.4c0.2,0.1,0.8,1.4,0.8,1.4s0.6-0.4,0.7-0.2c0.4,0.7,0.4,2.2,0.3,3.1 c-0.3,1.4-1,2.2-1.3,2.7c-0.1,0.1,0.8,0.5,1.3,1.9c0.5,1.3,0,2.5,0.1,2.6c0,0.1,0.7,0,1.7-0.6c0.6-0.4,1.3-0.8,2.1-0.8 C23.2,19.1,23.2,20.1,22.6,20.2z"/><path d="M16,29C8.8,29,3,23.2,3,16S8.8,3,16,3s13,5.8,13,13S23.2,29,16,29z M16,5C9.9,5,5,9.9,5,16s4.9,11,11,11 s11-4.9,11-11S22.1,5,16,5z"/></svg>
-              <p>Yarn</p>
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50"><path :fill="editorBlue" d="M42,17.3C42,37.8,24,44,24,44S6,37.8,6,17.3c0-2.5,0.2-4.6,0.4-6.3c0.3-2.5,2-4.5,4.4-5.1 C13.9,5,18.8,4,24,4s10.1,1,13.3,1.9c2.4,0.6,4.1,2.7,4.4,5.1C41.8,12.7,42,14.9,42,17.3z"/><path fill="#ffffff" d="M24,7c4.9,0,9.5,1,12.5,1.8c1.2,0.3,2,1.3,2.2,2.6c0.2,1.9,0.3,3.9,0.3,5.9c0,15.6-11.5,21.9-15,23.4 c-3.5-1.6-15-7.9-15-23.4c0-2,0.1-4,0.3-5.9c0.1-1.3,1-2.3,2.2-2.6C14.5,8,19.1,7,24,7 M24,4c-5.2,0-10.1,1-13.3,1.9 C8.4,6.5,6.6,8.6,6.4,11C6.2,12.7,6,14.9,6,17.3C6,37.8,24,44,24,44s18-6.2,18-26.7c0-2.5-0.2-4.6-0.4-6.3c-0.3-2.5-2-4.5-4.4-5.1 C34.1,5,29.2,4,24,4L24,4z"/><path fill="#dcedc8" d="M23 28H25V36H23z"/><path fill="#ffffff" d="M24,10c0,0-6,5-6,13c0,5.2,3.3,8.5,5,10l1-3l1,3c1.7-1.5,5-4.8,5-10C30,15,24,10,24,10z"/><path fill="#d1d1d1" d="M24,10c0,0-6,5-6,13c0,5.2,3.3,8.5,5,10l1-3V10z"/></svg>
+              <p>MongoDB</p>
             </li>
             <li :class="{gitalt: codeEnd}">
               <i class="fab fa-git-alt"></i>
@@ -833,7 +833,9 @@ export default defineComponent({
 
       const requestOptions = {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",
+                    "Access-Control-Allow-Headers": "Acept"
+                },
         body: JSON.stringify(message)
       };
       fetch("https://send-personal-email-api.herokuapp.com/sendemail", requestOptions)
