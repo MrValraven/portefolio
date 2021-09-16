@@ -145,7 +145,7 @@
                   <p>
                     <span id="age" class="code-red"></span>
                     <span id="doisPontos2"></span>
-                    <span id="idade" class="code-orange"></span>
+                    <span id="idade" class="code-green"></span>
                     <span id="virgula2"></span>
                   </p>
                   <p>
@@ -636,9 +636,9 @@ export default defineComponent({
         {element: '#doisPontos1', text: ': '},
         {element: '#Tiago', text: '"Tiago"'},
         {element: '#virgula1', text: ','},
-        {element: '#age', text: 'age'},
+        {element: '#age', text: 'favoriteFandom'},
         {element: '#doisPontos2', text: ': '},
-        {element: '#idade', text: '22'},
+        {element: '#idade', text: '"Star Wars"'},
         {element: '#virgula2', text: ','},
         {element: '#role', text: 'role'},
         {element: '#doisPontos3', text: ': '},
