@@ -72,9 +72,12 @@ export default {
   margin-top: 20px;
   margin-right: 20px;
   border-radius: 25px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 100px -20px,
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 20px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+
+  box-shadow: 0 5px 5px -3px #0003, 0 8px 10px 1px #00000024,
+    0 3px 14px 2px #0000001f;
 
   p {
     margin: 10px 0px;
@@ -94,11 +97,12 @@ export default {
 
       &:hover {
         cursor: pointer;
-        filter: brightness(0.9);
+        transform: translateY(-2px);
       }
 
       a {
         opacity: 1;
+        font-family: "Poppins", sans-serif;
       }
     }
 
@@ -112,7 +116,7 @@ export default {
 
       &:hover {
         cursor: pointer;
-        filter: brightness(0.7);
+        transform: translateY(-2px);
       }
     }
   }

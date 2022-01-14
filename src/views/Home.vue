@@ -206,14 +206,14 @@
             <h4><span :class="{ animate: isOnAAUE }">TechStack:</span></h4>
             <p class="tech">
               <span :class="{ animate: isOnAAUE }"
-                >React, Hooks, ContextAPI, TailwindCSS, Solidity</span
+                >Vue.js, S MongoDB, Express, JWT</span
               >
             </p>
             <div class="links">
               <div :class="{ link: isOnAAUE }">
                 <Button
                   buttonText="Live Website"
-                  link="https://aaue.vercel.app/"
+                  link="https://aaue.pt/"
                   :style="{
                     backgroundColor: darkBlue,
                     color: whiteBlue,
@@ -257,16 +257,16 @@
                 </span>
               </span>
               <span :class="{ line1: isOnKucomcu }">
-                <span :class="{ span2: isOnKucomcu }"
-                  >Visit Kucomcu.io to send</span
+                <span :class="{ span2: isOnKucomcu }">
+                  Visit Kucomcu.io to send</span
                 >
               </span>
               <span :class="{ line1: isOnKucomcu }">
                 <span :class="{ span3: isOnKucomcu }">ETH to your peers!</span>
               </span>
               <span :class="{ line1: isOnKucomcu }">
-                <span :class="{ span4: isOnKucomcu }"
-                  >Now live on the Ropsen Testnet</span
+                <span :class="{ span4: isOnKucomcu }">
+                  Now live on the Ropsen Testnet</span
                 >
               </span>
             </p>
@@ -388,6 +388,7 @@
         />
       </div>
       <Button
+        class="showMoreButton"
         @click="showAllProjects"
         v-if="currentSideprojectsLength !== sideprojects.length"
         style="width: 30%; margin-top: 50px"
@@ -1052,7 +1053,7 @@ export default defineComponent({
           title: "AAUE.pt Backend (WiP)",
           description:
             "Backend with User auth (JWT), MongoDB integration with user and news models",
-          websiteURL: "https://aaue.vercel.app/noticias",
+          websiteURL: "https://aaue.pt/noticias",
           codeURL: "https://github.com/MrValraven/blog-API",
         },
         {
@@ -2741,6 +2742,10 @@ export default defineComponent({
     }
 
     .contacts {
+      h1 {
+        line-height: 70px;
+        padding-bottom: 30px;
+      }
       .content {
         flex-direction: column;
 
@@ -2859,6 +2864,10 @@ export default defineComponent({
           font-size: 30px;
         }
       }
+    }
+
+    .sideprojects h1 {
+      font-size: 42px;
     }
   }
 
