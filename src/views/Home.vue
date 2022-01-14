@@ -178,7 +178,7 @@
         <li class="aaue">
           <div class="cardtext" :style="{ opacity: opacityAAUE }">
             <h2>
-              <span :class="{ animate: isOnAAUE }">AAUE.pt</span>
+              <span :class="{ animate: isOnAAUE }">AAUE</span>
             </h2>
             <h3>
               <span :class="{ animate: isOnAAUE }">Fullstack Development</span>
