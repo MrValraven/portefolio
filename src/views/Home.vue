@@ -1165,7 +1165,7 @@ export default defineComponent({
           title: "NEEI.UE (WiP)",
           description:
             "A website for the University of Évora's Computer Science Club",
-          websiteURL: "https://neei.netlify.app/",
+          websiteURL: "https://neei.vercel.app/",
           codeURL: "https://github.com/MrValraven/neei",
         },
         {
