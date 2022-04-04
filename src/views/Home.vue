@@ -243,7 +243,7 @@
         <li class="reitor">
           <div class="cardtext" :style="{ opacity: opacityReitor }">
             <h2>
-              <span :class="{ animate: isOnReitor }">Desport.aaue.pt</span>
+              <span :class="{ animate: isOnReitor }">Desporto.aaue.pt</span>
             </h2>
             <h3>
               <span :class="{ animate: isOnReitor }"
@@ -1135,6 +1135,14 @@ export default defineComponent({
             "Backend with User auth (JWT), MongoDB integration with user and news models",
           websiteURL: "https://aaue.pt/noticias",
           codeURL: "https://github.com/MrValraven/blog-API",
+        },
+        {
+          id: "2.2",
+          title: "BottleCellar.io",
+          description:
+            "A small project I did for a React + Redux Frontend Developer assessment test",
+          websiteURL: "https://bottlecellar.vercel.app",
+          codeURL: "https://github.com/MrValraven/bottlecellar",
         },
         {
           id: "2.5",
