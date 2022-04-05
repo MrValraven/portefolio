@@ -39,64 +39,7 @@
     class="pageContent"
     :style="{ backgroundColor: whiteBlue, color: darkBlue }"
   >
-    <section class="hero">
-      <div class="heroText">
-        <h2><span>Hi there 👋, I'm</span></h2>
-        <h1 class="chars">
-          <span id="firstName" class="name">
-            <span
-              class="char"
-              v-for="(char, index) in chars"
-              :key="char.id"
-              :data-index="index"
-              >{{ char.text }}</span
-            >
-          </span>
-          <span id="lastName" class="name">
-            <span
-              class="char"
-              v-for="(char, index) in chars2"
-              :key="char.id"
-              :data-index="index"
-              >{{ char.text }}</span
-            >
-          </span>
-        </h1>
-        <hr :style="{ backgroundColor: darkBlue, borderColor: darkBlue }" />
-        <p>
-          <span
-            >I'm a creative Fullstack Developer who loves to create elegant and
-            functional user interfaces and web apps</span
-          >
-        </p>
-        <div class="buttons">
-          <div class="buttoes">
-            <Button
-              @click="scrollToElement('.work')"
-              buttonText="See my work"
-              :style="{
-                backgroundColor: darkBlue,
-                color: whiteBlue,
-                borderColor: normalBlue,
-              }"
-            />
-            <Button
-              @click="scrollToElement('.contacts')"
-              class="lastButton"
-              buttonText="Contact me"
-              :style="{
-                backgroundColor: whiteBlue,
-                color: darkBlue,
-                borderColor: darkBlue,
-              }"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="imgContainer">
-        <img class="tiagoImg" src="@/assets/tiago.png" alt="" />
-      </div>
-    </section>
+    <Hero :darkBlue="darkBlue" :whiteBlue="whiteBlue" :normalBlue="normalBlue" />
     <section class="work">
       <ul class="projects">
         <li class="seistetos">
@@ -243,7 +186,7 @@
         <li class="reitor">
           <div class="cardtext" :style="{ opacity: opacityReitor }">
             <h2>
-              <span :class="{ animate: isOnReitor }">Desporto.aaue.pt</span>
+              <span :class="{ animate: isOnReitor }">UÉvora Sports</span>
             </h2>
             <h3>
               <span :class="{ animate: isOnReitor }"
@@ -1074,6 +1017,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Navbar from "../components/Navbar.vue";
+import Hero from "../components/Hero.vue";
 import SideProject from "../components/SideProject.vue";
 import NavbarMobile from "../components/NavbarMobile.vue";
 import ScrollToTopButton from "../components/ScrollToTopButton.vue";
@@ -1269,6 +1213,7 @@ export default defineComponent({
   },
   components: {
     Navbar,
+    Hero,
     NavbarMobile,
     ScrollToTopButton,
     Button,
@@ -1280,7 +1225,7 @@ export default defineComponent({
     window.addEventListener("resize", this.handleResize);
     const currentTheme = localStorage.getItem("theme")!;
     this.checkTheme(currentTheme);
-    for (let i: number = 122; i < 146; i++) {
+    for (let i: number = 122; i < 147; i++) {
       this.lineNumbers.push(i);
     }
 
@@ -1642,7 +1587,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Roboto:700");
 @keyframes showTopText {
   0% {
@@ -2999,6 +2944,7 @@ export default defineComponent({
   }
 
   @media (max-width: 450px) {
+
     .buttons .buttoes {
       display: flex;
       flex-direction: row;
@@ -3093,10 +3039,15 @@ export default defineComponent({
       .heroText {
         width: 100%;
 
+        h2 {
+          padding-left: 0px;
+        }
+
         h1 {
           flex-direction: column;
           font-size: 70px;
           margin-top: 10px;
+          padding-left: 0;
 
           #firstName {
             margin-bottom: -30px;
@@ -3105,6 +3056,15 @@ export default defineComponent({
 
         p {
           font-size: 16px;
+          padding-left: 10px;
+        }
+
+        hr {
+          margin-left: 10px
+        }
+
+        .buttons {
+          padding-left: 10px;
         }
       }
     }
