@@ -2939,6 +2939,10 @@ export default defineComponent({
           margin-bottom: 20px;
         }
       }
+
+      .mainImage {
+        width: 100%;
+      }
     }
   }
 
