@@ -1,103 +1,103 @@
 <template>
-    <section class="hero">
-      <div class="heroText">
-        <h2><span>Hi there 👋, I'm</span></h2>
-        <h1 class="chars">
-          <span id="firstName" class="name">
-            <span
-              class="char"
-              v-for="(char, index) in chars"
-              :key="char.id"
-              :data-index="index"
-              >{{ char.text }}</span
-            >
-          </span>
-          <span id="lastName" class="name">
-            <span
-              class="char"
-              v-for="(char, index) in chars2"
-              :key="char.id"
-              :data-index="index"
-              >{{ char.text }}</span
-            >
-          </span>
-        </h1>
-        <hr :style="{ backgroundColor: darkBlue, borderColor: darkBlue }" />
-        <p>
+  <section class="hero">
+    <div class="heroText">
+      <h2><span>Hi there 👋, I'm</span></h2>
+      <h1 class="chars">
+        <span id="firstName" class="name">
           <span
-            >I'm a creative Fullstack Developer who loves to create elegant and
-            functional user interfaces and web apps</span
+            class="char"
+            v-for="(char, index) in chars"
+            :key="char.id"
+            :data-index="index"
+            >{{ char.text }}</span
           >
-        </p>
-        <div class="buttons">
-          <div class="buttoes">
-            <Button
-              @click="scrollToElement('.work')"
-              buttonText="See my work"
-              :style="{
-                backgroundColor: darkBlue,
-                color: whiteBlue,
-                borderColor: normalBlue,
-              }"
-            />
-            <Button
-              @click="scrollToElement('.contacts')"
-              class="lastButton"
-              buttonText="Contact me"
-              :style="{
-                backgroundColor: whiteBlue,
-                color: darkBlue,
-                borderColor: darkBlue,
-              }"
-            />
-          </div>
+        </span>
+        <span id="lastName" class="name">
+          <span
+            class="char"
+            v-for="(char, index) in chars2"
+            :key="char.id"
+            :data-index="index"
+            >{{ char.text }}</span
+          >
+        </span>
+      </h1>
+      <hr :style="{ backgroundColor: darkBlue, borderColor: darkBlue }" />
+      <p>
+        <span
+          >I'm a creative Fullstack Developer who loves to create elegant and
+          functional user interfaces and web apps</span
+        >
+      </p>
+      <div class="buttons">
+        <div class="buttoes">
+          <Button
+            @click="scrollToElement('.work')"
+            buttonText="See my work"
+            :style="{
+              backgroundColor: darkBlue,
+              color: whiteBlue,
+              borderColor: normalBlue,
+            }"
+          />
+          <Button
+            @click="scrollToElement('.contacts')"
+            class="lastButton"
+            buttonText="Contact me"
+            :style="{
+              backgroundColor: whiteBlue,
+              color: darkBlue,
+              borderColor: darkBlue,
+            }"
+          />
         </div>
       </div>
-      <div class="imgContainer">
-        <img class="tiagoImg" src="@/assets/tiago.png" alt="" />
-      </div>
-    </section>
+    </div>
+    <div class="imgContainer">
+      <img class="tiagoImg" src="@/assets/tiago.png" alt="" />
+    </div>
+  </section>
 </template>
 
 <script>
 import Button from "../components/Button.vue";
-    export default {
-        name: "Hero",
-        props: {
-            darkBlue: String,
-            whiteBlue: String,
-            normalBlue: String
-        },
-        setup() {
-            const chars = [
-                { id: 0, text: "T" },
-                { id: 1, text: "i" },
-                { id: 2, text: "a" },
-                { id: 3, text: "g" },
-                { id: 4, text: "o" },
-            ];
-                const chars2 = [
-                { id: 5, text: "C" },
-                { id: 6, text: "o" },
-                { id: 7, text: "s" },
-                { id: 8, text: "t" },
-                { id: 9, text: "a" },
-            ];
+export default {
+  name: "Hero",
+  props: {
+    darkBlue: String,
+    whiteBlue: String,
+    normalBlue: String,
+  },
+  setup() {
+    const chars = [
+      { id: 0, text: "T" },
+      { id: 1, text: "i" },
+      { id: 2, text: "a" },
+      { id: 3, text: "g" },
+      { id: 4, text: "o" },
+    ];
+    const chars2 = [
+      { id: 5, text: "C" },
+      { id: 6, text: "o" },
+      { id: 7, text: "s" },
+      { id: 8, text: "t" },
+      { id: 9, text: "a" },
+    ];
 
-            return { chars, chars2};
-        },
-        components: {
-            Button
-        },
-        methods: {
-            scrollToElement(destination) {
-                const element = document.querySelector(destination);
-                if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                }
-            },
-        }
-    }
+    return { chars, chars2 };
+  },
+  components: {
+    Button,
+  },
+  methods: {
+    scrollToElement(destination) {
+      const element = document.querySelector(destination);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -254,7 +254,6 @@ import Button from "../components/Button.vue";
   }
 
   @media (max-width: 1150px) {
-
     .hero {
       flex-direction: column;
       padding-right: 30px;
@@ -297,11 +296,9 @@ import Button from "../components/Button.vue";
         display: none;
       }
     }
-
   }
 
   @media (max-width: 600px) {
-
     .hero {
       flex-direction: column;
       padding-right: 20px;
@@ -366,7 +363,7 @@ import Button from "../components/Button.vue";
         }
 
         hr {
-          margin-left: 10px
+          margin-left: 10px;
         }
 
         .buttons {
@@ -375,6 +372,5 @@ import Button from "../components/Button.vue";
       }
     }
   }
-
 }
 </style>
